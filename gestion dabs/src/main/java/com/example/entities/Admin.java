@@ -1,10 +1,13 @@
 package com.example.entities;
 
+import java.io.Serializable;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 @Entity
-@Table(name="Admin")
-public class Admin extends Utilisateur {
+@DiscriminatorValue("ad")
+public class Admin extends Utilisateur implements Serializable{
 
  private int numCnrps;
 
