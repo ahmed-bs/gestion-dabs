@@ -10,7 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.sun.istack.NotNull;
 
@@ -21,9 +22,14 @@ import com.sun.istack.NotNull;
 public class Utilisateur implements Serializable{
 
 	  @Id
-	    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	  @GeneratedValue(strategy=GenerationType.IDENTITY)
+	  @NotNull
 private int numCin;
-	@NotNull
+	  
+	  @ManyToOne
+		 @JoinColumn(name="code_Compte")
+		 private Compte compte;
+			
 	
 	
 private String nom;

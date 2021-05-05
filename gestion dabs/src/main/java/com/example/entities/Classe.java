@@ -1,8 +1,31 @@
 package com.example.entities;
 
-public class Classe {
-private int id_class;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.sun.istack.NotNull;
+
+@Entity
+@DiscriminatorValue("cl")
+public class Classe implements Serializable {
+	  @Id
+	  @GeneratedValue(strategy=GenerationType.IDENTITY)
+	  @NotNull
+private int id_class;
+	  
+	  @OneToMany
+	private List<Etudiant> etudiants = new ArrayList<Etudiant>();
+		
+	
 public Classe() {
 	super();
 }
