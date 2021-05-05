@@ -7,7 +7,8 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 
@@ -18,6 +19,9 @@ public class Enseignant extends Utilisateur implements Serializable  {
 private int numCnrps;
  @OneToMany
 	private List<Matiere> matiere = new ArrayList<Matiere>();
+ @ManyToMany
+ @JoinColumn(name="code_classe")
+ private List<Classe> Classes = new ArrayList<Classe>();
 public Enseignant() {
 	super();
 }

@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,7 +27,9 @@ private int id_class;
 	  @OneToMany
 	private List<Etudiant> etudiants = new ArrayList<Etudiant>();
 		
-	
+	  @ManyToMany
+	  @JoinColumn(name="code_enseignant")
+	  private List<Enseignant> enseignants = new ArrayList<Enseignant>();
 public Classe() {
 	super();
 }
