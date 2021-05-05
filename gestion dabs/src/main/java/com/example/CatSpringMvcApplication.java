@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.example.dao.UtilisateurRepository;
@@ -29,13 +30,13 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-	
+		Utilisateur c=new Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,123456);
 		 ipRepository.save(new Utilisateur( "dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082));	
 		 ipRepository.save(new Utilisateur("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082));	
 	    ipRepository.save(new Utilisateur("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082));	
 	    ipRepository.save(new Utilisateur( "dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082));
 	    ipRepository.save(new Enseignant ( "dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,123456));
-	    ipRepository.save(new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,123456));
+	    ipRepository.save(c);
 	    ipRepository.save(new  Admin ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,127477));
 	}
 
