@@ -1,14 +1,11 @@
 package com.example.entities;
 
-import java.io.Serializable;
-
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("et")
-public class Etudiant  extends Utilisateur implements Serializable  {
+@Table(name="Etudiant")
+public class Etudiant  extends Utilisateur {
 
 	private int numIns;
 
