@@ -1,17 +1,23 @@
 package com.example.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
+
+import javax.persistence.OneToMany;
+
+
+
 @Entity
 @DiscriminatorValue("en")
-public class Enseignant extends Utilisateur implements Serializable{
-
-
- private int numCnrps;
-
+public class Enseignant extends Utilisateur implements Serializable  {
+private int numCnrps;
+ @OneToMany
+	private List<Matiere> matiere = new ArrayList<Matiere>();
 public Enseignant() {
 	super();
 }

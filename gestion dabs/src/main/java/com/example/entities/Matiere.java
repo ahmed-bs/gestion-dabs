@@ -1,9 +1,26 @@
 package com.example.entities;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.sun.istack.NotNull;
+
+@Entity
+@DiscriminatorValue("ma")
 public class Matiere {
+	 @Id
+	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_Matiere;
 	private String Nom_Matiere;
-	
+    @ManyToOne
+	@JoinColumn(name="code_enseignant")
+  private Enseignant enseignant;
 	
 	public int getId_Matiere() {
 		return id_Matiere;
