@@ -43,6 +43,14 @@
                     <td><form:input path="tel" /></td>
                 </tr>   
                 <tr>
+                    <td>role: </td>
+                    <td> <form:hidden path="role"/></td>
+                </tr> 
+                <tr>
+                    <td>numIns: </td>
+                    <td><form:input path="numIns" /></td>
+                </tr> 
+                <tr>
                     <td colspan="2"><input type="submit" value="Save"></td>
                 </tr>                    
             </table>
