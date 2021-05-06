@@ -19,7 +19,7 @@ import com.sun.istack.NotNull;
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING)
-public class Utilisateur implements Serializable{
+public abstract class Utilisateur implements Serializable{
 
 	  @Id
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)

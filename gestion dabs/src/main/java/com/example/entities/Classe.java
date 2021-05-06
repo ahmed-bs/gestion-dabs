@@ -23,7 +23,6 @@ public class Classe implements Serializable {
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	  @NotNull
 private int id_class;
-	  //0
 	  @OneToMany
 	private List<Etudiant> etudiants = new ArrayList<Etudiant>();
 		
