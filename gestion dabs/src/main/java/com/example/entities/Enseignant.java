@@ -25,8 +25,8 @@ private int numCnrps;
 public Enseignant() {
 	super();
 }
-public Enseignant( String nom, String prenom,String email, String adresse, int tel,int numCnrps) {
-	super(  nom, prenom,email, adresse,tel);
+public Enseignant( String nom, String prenom,String email, String adresse, int tel,String role,int numCnrps) {
+	super(  nom, prenom,email, adresse,tel,role);
 	this.numCnrps = numCnrps;
 }
 

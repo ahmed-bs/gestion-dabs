@@ -38,25 +38,25 @@ public class CatController {
 	
 	@Autowired 
  UtilisateurRepository utilisateurRepository;
-		
+		//index controller
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
 		return "index";
 	}
 	
-	@RequestMapping(value = "/Utilisateur" )
+	//
+	@RequestMapping(value = "/Etudiant" )
 	public String tester(Model model){
-	
 		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
 		model.addAttribute("listeUtilisateurs",Utilisateurss);
-	return "VueProduits";
+	return "VueEtudiant";
 	}
 
 	
 	@RequestMapping(value="/delete/{id}",method = RequestMethod.GET)    
     public String delete(@PathVariable int id){    
 		utilisateurRepository.deleteById(id);    
-        return "redirect:/Utilisateur";    
+        return "redirect:/index";    
     }   
 	
 
@@ -67,7 +67,7 @@ public class CatController {
 		model.addAttribute("listeUtilisateurs",new Admin());
 	return "VueUpdate";
 	}
-	@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
+	/*@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
 	public String form2(Model model){
 		model.addAttribute("listeUtilisateurs",new Enseignant());
 	return "VueUpdate";
@@ -76,7 +76,7 @@ public class CatController {
 	public String form3(Model model){
 		model.addAttribute("listeUtilisateurs",new Etudiant());
 	return "VueUpdate";
-	}
+	}*/
 	
 
 	@RequestMapping(value = "edit",method = RequestMethod.GET )

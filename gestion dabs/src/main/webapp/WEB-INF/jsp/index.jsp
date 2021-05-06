@@ -10,6 +10,6 @@
 </head>
 <body>
 <a href="utilisateurform">ajoute utilisateurs</a>  
-<a href="/Utilisateur">voir les utilisateurs</a>  
+<a href=/Etudiant>voir les utilisateurs</a>  
 </body>
 </html>

@@ -22,8 +22,8 @@ public class Etudiant  extends Utilisateur implements Serializable{
 		}
 	
 
-	public Etudiant( String nom, String prenom,String email, String adresse, int tel,int numIns) {
-		super(  nom, prenom,email, adresse,tel);
+	public Etudiant( String nom, String prenom,String email, String adresse, int tel,String role,int numIns) {
+		super(  nom, prenom,email, adresse,tel,role);
 		this.numIns = numIns;
 	}
 
