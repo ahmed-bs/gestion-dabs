@@ -28,6 +28,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.UtilisateurRepository;
+import com.example.entities.Admin;
+import com.example.entities.Enseignant;
+import com.example.entities.Etudiant;
 import com.example.entities.Utilisateur;
 
 @Controller
@@ -61,10 +64,19 @@ public class CatController {
 	
 	@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
 	public String form(Model model){
-		model.addAttribute("listeUtilisateurs",new Utilisateur());
+		model.addAttribute("listeUtilisateurs",new Admin());
 	return "VueUpdate";
 	}
-
+	@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
+	public String form2(Model model){
+		model.addAttribute("listeUtilisateurs",new Enseignant());
+	return "VueUpdate";
+	}
+	@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
+	public String form3(Model model){
+		model.addAttribute("listeUtilisateurs",new Etudiant());
+	return "VueUpdate";
+	}
 	
 
 	@RequestMapping(value = "edit",method = RequestMethod.GET )
