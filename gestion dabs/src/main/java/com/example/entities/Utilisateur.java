@@ -37,18 +37,18 @@ private String prenom;
 private String email;
 private String adresse;
 private int tel;
-
+private String role;
 public Utilisateur() {
 	super();
 }
-public Utilisateur( String nom, String prenom,String email, String adresse, int tel) {
+public Utilisateur( String nom, String prenom,String email, String adresse, int tel,String role) {
 	super();
 	this.nom = nom;
 	this.prenom = prenom;
 	this.email=email;
 	this.adresse = adresse;
 	this.tel = tel;
-	
+	this.role=role;
 }
 public int getNumCin() {
 	return numCin;
@@ -85,6 +85,12 @@ public int getTel() {
 }
 public void setTel(int tel) {
 	this.tel = tel;
+}
+public String getRole() {
+	return role;
+}
+public void setRole(String role) {
+	this.role = role;
 }
 
 

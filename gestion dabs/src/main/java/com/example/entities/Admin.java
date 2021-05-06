@@ -19,8 +19,8 @@ public class Admin extends Utilisateur implements Serializable{
 		this.numCnrps = numCnrps;
 	}
 
-	public Admin(String nom, String prenom,String email, String adresse, int tel,int numCnrps) {
-		super( nom, prenom,email, adresse,tel);
+	public Admin(String nom, String prenom,String email, String adresse, int tel,String role,int numCnrps) {
+		super( nom, prenom,email, adresse,tel,role);
 		this.numCnrps = numCnrps;
 	}
 
