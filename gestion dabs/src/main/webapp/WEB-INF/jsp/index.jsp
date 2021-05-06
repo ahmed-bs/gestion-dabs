@@ -9,7 +9,12 @@
 <title>test</title>
 </head>
 <body>
-<a href="utilisateurform">ajoute utilisateurs</a>  
+<a href="utilisateurform">ajouter Enseignant </a>  
+<br>
+<a href="utilisateurform">ajouter Etudiant </a>  
+<br>
+<a href="utilisateurform">ajouter  Admin</a>  
+<br>
 <a href="/Utilisateur">voir les utilisateurs</a>  
 </body>
 </html>
