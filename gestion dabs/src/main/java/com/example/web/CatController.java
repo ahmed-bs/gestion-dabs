@@ -53,13 +53,6 @@ public class CatController {
 	}
 
 	
-	@RequestMapping(value="/delete/{id}",method = RequestMethod.GET)    
-    public String delete(@PathVariable int id){    
-		utilisateurRepository.deleteById(id);    
-        return "redirect:/index";    
-    }   
-	
-
 
 	
 	@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
@@ -83,7 +76,7 @@ public class CatController {
 	public String edit(Model model,int numCin){
 		Optional<Utilisateur> p=utilisateurRepository.findById(numCin);
 		 if(p.isPresent()) {//vérifie si p est null ou non. Si il n'est pas null, je créer un objet Produit que j'initialise avec p et que j'envois par la suite dans le formulaire via model.
-			 Utilisateur utilisateur = p.get();
+			 Etudiant utilisateur = (Etudiant) p.get();
 			  model.addAttribute("listeUtilisateurs",utilisateur);
 			  }
 	return "VueUpdate";
@@ -91,16 +84,23 @@ public class CatController {
 	
 
 	@RequestMapping(value="/save",method = RequestMethod.POST)    
-    public String save(Model model, Utilisateur utilisateur){    
+    public String save(Model model, Etudiant utilisateur){    
 		utilisateurRepository.save(utilisateur);
-        return "redirect:/Utilisateur";    
+        return "redirect:/Etudiant";    
     }   
 	
 	
 	
 	
+	//delete for all
+
+	@RequestMapping(value="/delete/{id}",method = RequestMethod.GET)    
+    public String delete(@PathVariable int id){    
+		utilisateurRepository.deleteById(id);    
+        return "redirect:/index";    
+    }   
 	
-	
+
 	
 	
 	
