@@ -58,7 +58,12 @@ public class CatController {
 		model.addAttribute("listeUtilisateurs",Utilisateurss);
 	return "VueEnseignant";
 	}
-	
+	@RequestMapping(value = "/Admin" )
+	public String tester2(Model model){
+		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
+		model.addAttribute("listeUtilisateurs",Utilisateurss);
+	return "VueAdmin";
+	}
 	/***************************ajouter********************************/
 	@RequestMapping(value = "/ajouterEn",method = RequestMethod.GET )
 	public String form2(Model model){
@@ -72,11 +77,11 @@ public class CatController {
 	return "VueUpdate";
 	}
 	
-	/*@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
+	@RequestMapping(value = "/ajouterAd",method = RequestMethod.GET )
 	public String form(Model model){
 		model.addAttribute("listeUtilisateurs",new Admin());
-	return "VueUpdate";
-	}*/
+	return "ajouterAdmin";
+	}
 	
 	
 	
@@ -103,6 +108,17 @@ public class CatController {
 			  }
 	return "ajouterEnseignant";
 	}
+	
+	@RequestMapping(value = "editAd",method = RequestMethod.GET )
+	public String editAd(Model model,int numCin){
+		Optional<Utilisateur> p=utilisateurRepository.findById(numCin);
+		 if(p.isPresent()) {
+			 //vérifie si p est null ou non. Si il n'est pas null, je créer un objet Produit que j'initialise avec p et que j'envois par la suite dans le formulaire via model.
+			 Admin utilisateur = (Admin) p.get();
+			  model.addAttribute("listeUtilisateurs",utilisateur);
+			  }
+	return "ajouterAdmin";
+	}
 /********************************save***********************************/
 	@RequestMapping(value="/save",method = RequestMethod.POST)    
     public String save(Model model, Etudiant utilisateur){    
@@ -115,6 +131,12 @@ public class CatController {
 		utilisateurRepository.save(utilisateur);
         return "redirect:/Enseignant";    
     } 
+	@RequestMapping(value="/saveAd",method = RequestMethod.POST)    
+    public String saveAd(Model model, Enseignant utilisateur){    
+		utilisateurRepository.save(utilisateur);
+        return "redirect:/Admin";    
+    } 
+	
 	
 	
 	
@@ -127,7 +149,8 @@ public class CatController {
     }   
 	
 
-	
+
+
 	
 	
 }
