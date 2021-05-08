@@ -1,10 +1,13 @@
 package com.example.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -16,7 +19,8 @@ public class Etudiant  extends Utilisateur implements Serializable{
 	  @ManyToOne
 	 @JoinColumn(name="code_classe")
 	 private Classe classe;
-		
+	  @ManyToMany
+	  private List<Matiere> matieres = new ArrayList<Matiere>();
 		public Etudiant() {
 			super();
 		}
