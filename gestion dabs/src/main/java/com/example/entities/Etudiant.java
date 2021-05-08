@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @DiscriminatorValue("et")
 public class Etudiant  extends Utilisateur implements Serializable{
-
+	private boolean abs;
 	private int numIns;
 	  @ManyToOne
 	 @JoinColumn(name="code_classe")
@@ -37,6 +37,16 @@ public class Etudiant  extends Utilisateur implements Serializable{
 
 	public void setNumIns(int numIns) {
 		this.numIns = numIns;
+	}
+
+
+	public boolean getAbs() {
+		return abs;
+	}
+
+
+	public void setAbs(boolean abs) {
+		this.abs = abs;
 	}
 	
 }

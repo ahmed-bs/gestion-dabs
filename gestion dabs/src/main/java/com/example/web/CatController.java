@@ -149,8 +149,42 @@ public class CatController {
     }   
 	
 
+	//************************absence section *****************************/
+	//************************absence section *****************************/
+	//************************absence section *****************************/
 
-
+	
+	
+	
+	
+	
+    @RequestMapping(value = "/absenceForm" )
+	public String tester00(Model model){
+		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
+		model.addAttribute("listeUtilisateurs",Utilisateurss);
+	return "listeEtudiant";
+	}
+    
+    
+    
+   
+    @RequestMapping("/submitForm")  
+    public String submitForm(@ModelAttribute("listeUtilisateurs") Etudiant res)  
+    {  
+        return "listeAbsence";  
+    } 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
