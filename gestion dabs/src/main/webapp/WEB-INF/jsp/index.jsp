@@ -23,4 +23,5 @@
 <a href=/Admin>voir  Admin</a>  
 <br>
 </body>
+<a href=/absenceForm>cheack absence</a>  
 </html>
