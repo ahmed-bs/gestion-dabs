@@ -54,6 +54,7 @@
                     <td colspan="2"><input type="submit" value="SaveEn"></td>
                 </tr>                    
             </table>
+            <a href=/index>page d'acceuil</a>  
         </form:form>
     </div>
 </body>

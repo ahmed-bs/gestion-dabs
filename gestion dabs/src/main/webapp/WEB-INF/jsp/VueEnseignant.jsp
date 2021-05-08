@@ -40,5 +40,6 @@
 </c:forEach>
   </tbody> 
 </table>
+<a href=/index>page d'acceuil</a>  
 </body>
 </html>

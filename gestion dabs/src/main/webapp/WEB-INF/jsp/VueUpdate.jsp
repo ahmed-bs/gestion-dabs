@@ -57,4 +57,5 @@
         </form:form>
     </div>
 </body>
+<a href=/index>page d'acceuil</a>  
 </html>

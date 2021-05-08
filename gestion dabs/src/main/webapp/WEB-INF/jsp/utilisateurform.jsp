@@ -51,6 +51,7 @@
                 </tr>                    
             </table>
         </form:form>
+        <a href=/index>page d'acceuil</a>  
     </div>
 </body>
 </html>

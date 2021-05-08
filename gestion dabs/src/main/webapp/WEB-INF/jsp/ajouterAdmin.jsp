@@ -56,5 +56,8 @@
             </table>
         </form:form>
     </div>
+    <br>
+<a href=/index>page d'acceuil</a>  
+<br>
 </body>
 </html>
