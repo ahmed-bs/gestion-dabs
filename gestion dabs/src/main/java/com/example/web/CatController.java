@@ -38,13 +38,13 @@ public class CatController {
 	
 	@Autowired 
  UtilisateurRepository utilisateurRepository;
-		//index controller
+		//*********************index controller*********************/
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
 		return "index";
 	}
 	
-	//
+	//*****************************affiche ************************************/
 	@RequestMapping(value = "/Etudiant" )
 	public String tester(Model model){
 		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
@@ -52,47 +52,73 @@ public class CatController {
 	return "VueEtudiant";
 	}
 
-	
-
-	
-	@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
-	public String form(Model model){
-		model.addAttribute("listeUtilisateurs",new Admin());
-	return "VueUpdate";
+	@RequestMapping(value = "/Enseignant" )
+	public String teste0(Model model){
+		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
+		model.addAttribute("listeUtilisateurs",Utilisateurss);
+	return "VueEnseignant";
 	}
-	/*@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
+	
+	/***************************ajouter********************************/
+	@RequestMapping(value = "/ajouterEn",method = RequestMethod.GET )
 	public String form2(Model model){
 		model.addAttribute("listeUtilisateurs",new Enseignant());
-	return "VueUpdate";
+	return "ajouterEnseignant";
 	}
-	@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
+	
+	@RequestMapping(value = "/VueUpdate",method = RequestMethod.GET )
 	public String form3(Model model){
 		model.addAttribute("listeUtilisateurs",new Etudiant());
 	return "VueUpdate";
+	}
+	
+	/*@RequestMapping(value = "/utilisateurform",method = RequestMethod.GET )
+	public String form(Model model){
+		model.addAttribute("listeUtilisateurs",new Admin());
+	return "VueUpdate";
 	}*/
 	
-
+	
+	
+/*************************************ediiiit****************************************/
+	
+	
 	@RequestMapping(value = "edit",method = RequestMethod.GET )
 	public String edit(Model model,int numCin){
 		Optional<Utilisateur> p=utilisateurRepository.findById(numCin);
-		 if(p.isPresent()) {//vérifie si p est null ou non. Si il n'est pas null, je créer un objet Produit que j'initialise avec p et que j'envois par la suite dans le formulaire via model.
+		 if(p.isPresent()) {
+			 //vérifie si p est null ou non. Si il n'est pas null, je créer un objet Produit que j'initialise avec p et que j'envois par la suite dans le formulaire via model.
 			 Etudiant utilisateur = (Etudiant) p.get();
 			  model.addAttribute("listeUtilisateurs",utilisateur);
 			  }
 	return "VueUpdate";
 	}
-	
-
+	@RequestMapping(value = "editEn",method = RequestMethod.GET )
+	public String editEn(Model model,int numCin){
+		Optional<Utilisateur> p=utilisateurRepository.findById(numCin);
+		 if(p.isPresent()) {
+			 //vérifie si p est null ou non. Si il n'est pas null, je créer un objet Produit que j'initialise avec p et que j'envois par la suite dans le formulaire via model.
+			 Enseignant utilisateur = (Enseignant) p.get();
+			  model.addAttribute("listeUtilisateurs",utilisateur);
+			  }
+	return "ajouterEnseignant";
+	}
+/********************************save***********************************/
 	@RequestMapping(value="/save",method = RequestMethod.POST)    
     public String save(Model model, Etudiant utilisateur){    
 		utilisateurRepository.save(utilisateur);
         return "redirect:/Etudiant";    
     }   
 	
+	@RequestMapping(value="/saveEn",method = RequestMethod.POST)    
+    public String saveEn(Model model, Enseignant utilisateur){    
+		utilisateurRepository.save(utilisateur);
+        return "redirect:/Enseignant";    
+    } 
 	
 	
 	
-	//delete for all
+	//************************delete for all*****************************/
 
 	@RequestMapping(value="/delete/{id}",method = RequestMethod.GET)    
     public String delete(@PathVariable int id){    

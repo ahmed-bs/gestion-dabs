@@ -10,15 +10,15 @@
 </head>
 <body>
 
-<a href="">ajouter Enseignant </a>  
+<a href="/ajouterEn">ajouter Enseignant </a>  
 <br>
-<a href="">ajouter Etudiant </a>  
+<a href="/VueUpdate">ajouter Etudiant </a>  
 <br>
 <a href="">ajouter  Admin</a>  
 <br>
 <a href=/Etudiant>voir  Etudiant</a>  
 <br>
-<a href=/>voir  Enseignant</a>  
+<a href=/Enseignant>voir  Enseignant</a>  
 <br>
 <a href=/>voir  Admin</a>  
 <br>

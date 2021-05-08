@@ -13,8 +13,8 @@
 
       
 	    <div align="center">
-        <h2>ajouter etudiant</h2>
-        <form:form action="save" method="post" modelAttribute="listeUtilisateurs">
+        <h2>ajouter Enseignant</h2>
+        <form:form action="saveEn" method="post" modelAttribute="listeUtilisateurs">
             <table border="1" >
                 <tr>
                     <td>ID: </td>
@@ -42,16 +42,16 @@
                     <td>tel: </td>
                     <td><form:input path="tel" /></td>
                 </tr>   
-                <tr>
+                 <tr>
+                    <td>numCnrps: </td>
+                    <td><form:input path="numCnrps" /></td>
+                </tr> 
+                   <tr>
                     <td>role: </td>
-                    <td> <form:hidden value="et" path="role"/></td>
-                </tr> 
+                    <td> <form:hidden value="en" path="role"/></td>
+                </tr>
                 <tr>
-                    <td>numIns: </td>
-                    <td><form:input path="numIns" /></td>
-                </tr> 
-                <tr>
-                    <td colspan="2"><input type="submit" value="Save"></td>
+                    <td colspan="2"><input type="submit" value="SaveEn"></td>
                 </tr>                    
             </table>
         </form:form>
