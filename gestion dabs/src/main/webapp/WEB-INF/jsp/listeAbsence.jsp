@@ -24,7 +24,8 @@
   </thead>
   <tbody>
  <c:forEach items="${listeUtilisateurs}" var="place">
-  <c:if test = "${place.role=='et'} && ${place.abs==1 }">
+  <c:if test = "${place.role=='et'}">
+   <c:if test = "${place.abs!=0 }">
   <tr>
     <td >${place.numCin} </td>
     <td >${place.nom}</td>
@@ -35,6 +36,7 @@
      <td >${place.numIns}</td>
 
   </tr>
+</c:if>
 </c:if>
 </c:forEach>
   </tbody> 

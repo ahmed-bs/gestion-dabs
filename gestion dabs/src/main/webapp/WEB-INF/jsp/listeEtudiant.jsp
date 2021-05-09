@@ -10,7 +10,7 @@
 </head>
 <body>
 <h2> Affichage des etudiants check absence</h2>
-     <form:form action="editAbs" method="post" modelAttribute="listeUtilisateurs">
+  
 <table border="1">
 <thead>
   <tr>
@@ -47,9 +47,9 @@
       
      
   </tbody> 
+ 
 </table>
-  <input type="submit" value="submit">
-    </form:form>
+  <a href="Etudiantabsent">absent</a>
 
 <a href=/index>page d'acceuil</a>  
 </body>

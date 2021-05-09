@@ -179,6 +179,12 @@ public class CatController {
 		utilisateurRepository.save(utilisateur);
         return "redirect:/formAbs";    
     }
+	@RequestMapping(value = "/Etudiantabsent" )
+	public String testerabsete(Model model){
+		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
+		model.addAttribute("listeUtilisateurs",Utilisateurss);
+	return "listeAbsence";
+	}
 	
 }
 
