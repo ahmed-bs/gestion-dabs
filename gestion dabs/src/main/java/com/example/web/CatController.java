@@ -27,8 +27,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.dao.ClasseRepository;
 import com.example.dao.UtilisateurRepository;
 import com.example.entities.Admin;
+import com.example.entities.Classe;
 import com.example.entities.Enseignant;
 import com.example.entities.Etudiant;
 import com.example.entities.Utilisateur;
@@ -38,6 +40,9 @@ public class CatController {
 	
 	@Autowired 
  UtilisateurRepository utilisateurRepository;
+	@Autowired 
+	ClasseRepository classeRepository;
+	
 		//*********************index controller*********************/
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
@@ -185,5 +190,48 @@ public class CatController {
 	return "listeAbsence";
 	}
 	
-}
 
+/**********************************************************************crudd classe **************************************************************************/
+
+
+/**********affiche**********************/
+
+@RequestMapping(value = "/classe" )
+	public String tester7(Model model){
+		List<Classe> Classes= classeRepository.findAll();
+		model.addAttribute("listeClasses",Classes);
+	return "VueClasse";
+	}
+
+/**********ajouter**********************/
+@RequestMapping(value = "/ajoutercl",method = RequestMethod.GET )
+	public String form5(Model model){
+		model.addAttribute("listeClasses",new Classe());
+	return "ajouterClasse";
+	}
+	
+/**********edit**********************/
+	@RequestMapping(value = "editcl",method = RequestMethod.GET )
+	public String editcl(Model model,int id_class){
+		Optional<Classe> p=classeRepository.findById(id_class);
+		 if(p.isPresent()) {
+			
+			 Classe classe = (Classe) p.get();
+			  model.addAttribute("listeClasses",classe);
+			  }
+	return "ajouterClasse";
+	}
+/********************************save***********************************/
+	@RequestMapping(value="/savecl",method = RequestMethod.POST)    
+    public String save(Model model, Classe classe){    
+		classeRepository.save(classe);
+        return "redirect:/classe";    
+	}
+/**********delete**********************/
+
+	@RequestMapping(value="/deletee/{id}",method = RequestMethod.GET)    
+    public String delete2(@PathVariable int id){    
+		classeRepository.deleteById(id);    
+        return "redirect:/index";  
+}
+}

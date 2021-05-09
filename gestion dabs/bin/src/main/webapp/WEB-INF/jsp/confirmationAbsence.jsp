@@ -14,7 +14,7 @@
       
 	    <div align="center">
         <h2>ajouter etudiant</h2>
-        <form:form action="save" method="post" modelAttribute="listeUtilisateurs">
+        <form:form action="saveAbs" method="post" modelAttribute="listeUtilisateurs">
             <table border="1" >
                 <tr>
                     <td>ID: </td>
@@ -24,34 +24,41 @@
                 </tr>        
                 <tr>
                     <td>Name: </td>
-                    <td><form:input path="nom" /></td>
+                    <td>${listeUtilisateurs.nom} <form:hidden path="nom"/></td>
                 </tr>
                  <tr>
                     <td>Prenom: </td>
-                    <td><form:input path="prenom" /></td>
+                    <td>${listeUtilisateurs.prenom} <form:hidden path="prenom"/></td>
                 </tr>
-                <tr>
+           
+             <tr>
+                    <td>absence: </td>
+                    <td>${listeUtilisateurs.abs+1}<form:hidden  path="abs" value="${listeUtilisateurs.abs+1}"/></td>
+                </tr>
+                   <tr>
+                    <td>numIns: </td>
+                    <td>${listeUtilisateurs.numIns}<form:hidden path="numIns"/></td>
+                </tr> 
+                      
+                 <tr>         
                     <td>Email: </td>
-                    <td><form:input path="email" /></td>
+                    <td>${listeUtilisateurs.email}<form:hidden path="email" /></td>
                 </tr>
                 <tr>
                     <td>Address: </td>
-                    <td><form:input path="adresse" /></td>
+                    <td>${listeUtilisateurs.adresse}<form:hidden path="adresse" /></td>
                 </tr>   
                 <tr>
                     <td>tel: </td>
-                    <td><form:input path="tel" /></td>
+                    <td>${listeUtilisateurs.tel}<form:hidden path="tel" /></td>
                 </tr>   
                 <tr>
                     <td>role: </td>
-                    <td> <form:hidden value="et" path="role"/></td>
+                    <td> ${listeUtilisateurs.role}<form:hidden value="et" path="role"/></td>
                 </tr> 
+                           
                 <tr>
-                    <td>numIns: </td>
-                    <td><form:input path="numIns" /></td>
-                </tr> 
-                <tr>
-                    <td colspan="2"><input type="submit" value="Save"></td>
+                    <td colspan="2"><input type="submit" value="confirmer modification"></td>
                 </tr>                    
             </table>
         </form:form>

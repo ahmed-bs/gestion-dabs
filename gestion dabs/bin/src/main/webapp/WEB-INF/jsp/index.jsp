@@ -8,8 +8,27 @@
 <head>
 <title>test</title>
 </head>
+
 <body>
-<a href="utilisateurform">ajoute utilisateurs</a>  
-<a href="/Utilisateur">voir les utilisateurs</a>  
+
+<a href="/ajouterEn">ajouter Enseignant </a>  
+<br>
+<a href="/VueUpdate">ajouter Etudiant </a>  
+<br>
+<a href="/ajouterAd">ajouter  Admin</a>  
+<br><br>
+<a href=/Etudiant>voir  Etudiant</a>  
+<br>
+<a href=/Enseignant>voir  Enseignant</a>  
+<br>
+<a href=/Admin>voir  Admin</a>  
+<br>
+<a href=/formAbs>cheack absenceeeee</a>  
+<br>
+<a href=/classe>voir  class</a>  
+<br>
+<a href=/ajoutercl>ajouter classe</a>  
+<br>
 </body>
+
 </html>

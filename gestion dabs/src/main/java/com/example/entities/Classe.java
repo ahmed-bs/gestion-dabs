@@ -23,6 +23,7 @@ public class Classe implements Serializable {
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	  @NotNull
 private int id_class;
+	private String name ;
 	  @OneToMany
 	private List<Etudiant> etudiants = new ArrayList<Etudiant>();
 		
@@ -33,9 +34,27 @@ public Classe() {
 	super();
 }
 
-public Classe(int id_class) {
+public Classe(String name) {
+	super();
+
+	this.name = name;
+}
+
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public Classe(int id_class, String name, List<Etudiant> etudiants, List<Enseignant> enseignants) {
 	super();
 	this.id_class = id_class;
+	this.name = name;
+	this.etudiants = etudiants;
+	this.enseignants = enseignants;
 }
 
 public int getId_class() {

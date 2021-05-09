@@ -6,8 +6,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.example.dao.ClasseRepository;
 import com.example.dao.UtilisateurRepository;
 import com.example.entities.Admin;
+import com.example.entities.Classe;
 import com.example.entities.Enseignant;
 import com.example.entities.Etudiant;
 import com.example.entities.Utilisateur;
@@ -19,7 +21,9 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	
 	 @Autowired
 		 UtilisateurRepository ipRepository;
-	 
+	 @Autowired
+	  ClasseRepository icRepository;
+		 
 	 
 		public static void main(String[] args) {
 		SpringApplication.run(CatSpringMvcApplication.class, args);
@@ -38,6 +42,7 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	    ipRepository.save(new Enseignant ( "dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"en",123456));
 	    ipRepository.save(new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",123456));
 	    ipRepository.save(new  Admin ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"ad",127477));
+	    icRepository.save(new  Classe(0, "dsi22", null, null));
 	}
 
 }
