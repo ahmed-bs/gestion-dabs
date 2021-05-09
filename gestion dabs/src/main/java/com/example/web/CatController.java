@@ -152,8 +152,7 @@ public class CatController {
 	
 
 	//************************absence section *****************************/
-	//************************absence section *****************************/
-	//************************absence section *****************************/
+
 
 	@RequestMapping(value = "/formAbs" )
 	public String tester00(Model model){
@@ -166,7 +165,7 @@ public class CatController {
 	public String editAbs(Model model,int numCin){
 		Optional<Utilisateur> p=utilisateurRepository.findById(numCin);
 		 if(p.isPresent()) {
-			 //vérifie si p est null ou non. Si il n'est pas null, je créer un objet Produit que j'initialise avec p et que j'envois par la suite dans le formulaire via model.
+		
 			 Etudiant utilisateur = (Etudiant) p.get();
 			  model.addAttribute("listeUtilisateurs",utilisateur);
 			  }
