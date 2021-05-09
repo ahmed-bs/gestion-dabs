@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
+import com.example.entities.Etudiant;
 import javax.websocket.server.PathParam;
 import org.springframework.data.repository.CrudRepository;
 
@@ -41,6 +41,7 @@ public class CatController {
 		//*********************index controller*********************/
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
+
 		return "index";
 	}
 	
@@ -64,6 +65,7 @@ public class CatController {
 		model.addAttribute("listeUtilisateurs",Utilisateurss);
 	return "VueAdmin";
 	}
+
 	/***************************ajouter********************************/
 	@RequestMapping(value = "/ajouterEn",method = RequestMethod.GET )
 	public String form2(Model model){
@@ -86,7 +88,7 @@ public class CatController {
 	
 	
 /*************************************ediiiit****************************************/
-	
+
 	
 	@RequestMapping(value = "edit",method = RequestMethod.GET )
 	public String edit(Model model,int numCin){
@@ -108,7 +110,6 @@ public class CatController {
 			  }
 	return "ajouterEnseignant";
 	}
-	
 	@RequestMapping(value = "editAd",method = RequestMethod.GET )
 	public String editAd(Model model,int numCin){
 		Optional<Utilisateur> p=utilisateurRepository.findById(numCin);
@@ -119,6 +120,7 @@ public class CatController {
 			  }
 	return "ajouterAdmin";
 	}
+
 /********************************save***********************************/
 	@RequestMapping(value="/save",method = RequestMethod.POST)    
     public String save(Model model, Etudiant utilisateur){    
@@ -132,7 +134,7 @@ public class CatController {
         return "redirect:/Enseignant";    
     } 
 	@RequestMapping(value="/saveAd",method = RequestMethod.POST)    
-    public String saveAd(Model model, Enseignant utilisateur){    
+    public String saveAd(Model model, Admin utilisateur){    
 		utilisateurRepository.save(utilisateur);
         return "redirect:/Admin";    
     } 
@@ -153,39 +155,30 @@ public class CatController {
 	//************************absence section *****************************/
 	//************************absence section *****************************/
 
-	
-	
-	
-	
-	
-    @RequestMapping(value = "/absenceForm" )
+	@RequestMapping(value = "/formAbs" )
 	public String tester00(Model model){
 		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
 		model.addAttribute("listeUtilisateurs",Utilisateurss);
 	return "listeEtudiant";
 	}
-    
-    
-    
-   
-    @RequestMapping("/submitForm")  
-    public String submitForm(@ModelAttribute("listeUtilisateurs") Etudiant res)  
-    {  
-        return "listeAbsence";  
-    } 
 	
+	@RequestMapping(value = "editAbs",method = RequestMethod.GET )
+	public String editAbs(Model model,int numCin){
+		Optional<Utilisateur> p=utilisateurRepository.findById(numCin);
+		 if(p.isPresent()) {
+			 //vérifie si p est null ou non. Si il n'est pas null, je créer un objet Produit que j'initialise avec p et que j'envois par la suite dans le formulaire via model.
+			 Etudiant utilisateur = (Etudiant) p.get();
+			  model.addAttribute("listeUtilisateurs",utilisateur);
+			  }
+	return "confirmationAbsence";
+	}
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping(value="/saveAbs",method = RequestMethod.POST)    
+    public String saveAbs(Model model, Etudiant utilisateur){    
+		utilisateurRepository.save(utilisateur);
+        return "redirect:/formAbs";    
+    }
 	
 }
 

@@ -15,13 +15,16 @@
 <a href="/VueUpdate">ajouter Etudiant </a>  
 <br>
 <a href="/ajouterAd">ajouter  Admin</a>  
-<br>
+<br><br>
 <a href=/Etudiant>voir  Etudiant</a>  
 <br>
 <a href=/Enseignant>voir  Enseignant</a>  
 <br>
 <a href=/Admin>voir  Admin</a>  
-<br>
+<br><br>
+
+<a href=/formAbs>cheack absence</a>  
+
 </body>
-<a href=/absenceForm>cheack absence</a>  
+
 </html>

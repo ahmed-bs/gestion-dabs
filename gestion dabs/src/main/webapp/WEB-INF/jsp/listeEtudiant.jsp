@@ -9,8 +9,8 @@
 <title>test</title>
 </head>
 <body>
-<h2> Affichage des etudiants</h2>
-    <form:form action="submitForm" method="post" modelAttribute="listeUtilisateurs">
+<h2> Affichage des etudiants check absence</h2>
+     <form:form action="editAbs" method="post" modelAttribute="listeUtilisateurs">
 <table border="1">
 <thead>
   <tr>
@@ -20,30 +20,37 @@
     <th>email</th>
     <th>adresse</th>
     <th>tel</th>
+    <th>abs</th>
     <th>numIns</th>
   </tr>
   </thead>
   <tbody>
- <c:forEach items="${listeUtilisateurs}" var="place">
+ <c:forEach items="${listeUtilisateurs}" var="place" >
   <c:if test = "${place.role=='et'}">
+ 
   <tr>
-   <td > <input type="checkbox" name="selected" value=" ${place.abs}"> ${place.numCin} </td>
+   <td >${place.numCin} </td>
     <td >${place.nom}</td>
     <td >${place.prenom}</td>
     <td >${place.email}</td>
     <td >${place.adresse}</td>
     <td >${place.tel}</td>
+    <td >${place.abs}</td>
      <td >${place.numIns}</td>
+     <td><a href="editAbs?numCin=${place.numCin}">absent</a></td> 
+      
   </tr>
-   
+
 </c:if>
 </c:forEach>
-  <tr>
-        <td colspan="2"><input type="submit" value="submit"></td>
-     </tr> 
+
+      
+     
   </tbody> 
 </table>
- </form:form>
+  <input type="submit" value="submit">
+    </form:form>
+
 <a href=/index>page d'acceuil</a>  
 </body>
 </html>
