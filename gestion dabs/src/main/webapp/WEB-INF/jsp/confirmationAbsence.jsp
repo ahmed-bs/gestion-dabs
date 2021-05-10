@@ -40,6 +40,10 @@
         <li class="nav-item">
         <a class="nav-link" href="/Etudiantabsent">liste absence </a>
       </li>
+      
+         <li class="nav-item">
+        <a class="nav-link" href="/matiere">matiere </a>
+      </li>
     </ul>
   </div>
 </nav>
