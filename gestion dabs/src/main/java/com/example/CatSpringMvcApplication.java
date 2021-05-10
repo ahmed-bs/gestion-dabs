@@ -8,12 +8,14 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.example.dao.ClasseRepository;
 import com.example.dao.CompteRepository;
+import com.example.dao.MatiereRepository;
 import com.example.dao.UtilisateurRepository;
 import com.example.entities.Admin;
 import com.example.entities.Classe;
 import com.example.entities.Compte;
 import com.example.entities.Enseignant;
 import com.example.entities.Etudiant;
+import com.example.entities.Matiere;
 import com.example.entities.Utilisateur;
 
 @SpringBootApplication
@@ -27,6 +29,8 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	  ClasseRepository icRepository;
 	 @Autowired
 	  CompteRepository compRepository;
+	 @Autowired
+	  MatiereRepository matRepository;
 	 
 		public static void main(String[] args) {
 		SpringApplication.run(CatSpringMvcApplication.class, args);
@@ -47,6 +51,9 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	    ipRepository.save(new  Admin ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"ad",127477));
 	    icRepository.save(new  Classe(0, "dsi22", null, null));
 	    compRepository.save(new  Compte(0,null, "hghhy",12541,"hhdgj"));
+	    matRepository.save(new  Matiere(0,"php",null, null));
+	    matRepository.save(new  Matiere(0,"jee",null, null));
+
 	}
 
 }

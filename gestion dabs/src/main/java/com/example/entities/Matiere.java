@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +18,11 @@ import com.sun.istack.NotNull;
 
 @Entity
 @DiscriminatorValue("ma")
-public class Matiere {
+public class Matiere implements Serializable{
 	 @Id
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_Matiere;
-	private String Nom_Matiere;
+	 private String name;
     @ManyToOne
 	@JoinColumn(name="code_enseignant")
   private Enseignant enseignant;
@@ -34,18 +35,29 @@ public class Matiere {
 	public void setId_Matiere(int id_Matiere) {
 		this.id_Matiere = id_Matiere;
 	}
-	public String getNom_Matiere() {
-		return Nom_Matiere;
+	
+	public String getName() {
+		return name;
 	}
-	public void setNom_Matiere(String nom_Matiere) {
-		Nom_Matiere = nom_Matiere;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Matiere() {
 		super();
 	}
-	public Matiere(int id_Matiere, String nom_Matiere) {
+	
+	public Matiere(int id_Matiere, String name) {
 		super();
 		this.id_Matiere = id_Matiere;
-		Nom_Matiere = nom_Matiere;
-	} 
+		this.name = name;
+	}
+	public Matiere(int id_Matiere, String name, Enseignant enseignant, List<Etudiant> etudiants) {
+		super();
+		this.id_Matiere = id_Matiere;
+		this.name = name;
+		this.enseignant = enseignant;
+		this.etudiants = etudiants;
+	}
+
+	
 }

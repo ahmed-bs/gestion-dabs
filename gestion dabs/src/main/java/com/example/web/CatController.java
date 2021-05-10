@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import com.example.entities.Etudiant;
+import com.example.entities.Matiere;
+
 import javax.websocket.server.PathParam;
 import org.springframework.data.repository.CrudRepository;
 
@@ -29,6 +31,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.ClasseRepository;
 import com.example.dao.CompteRepository;
+import com.example.dao.MatiereRepository;
 import com.example.dao.UtilisateurRepository;
 import com.example.entities.Admin;
 import com.example.entities.Classe;
@@ -46,6 +49,8 @@ public class CatController {
 	ClasseRepository classeRepository;
 	@Autowired 
 	CompteRepository compteRepository;
+	@Autowired 
+	MatiereRepository matiereRepository;
 		//*********************index controller*********************/
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
@@ -280,6 +285,46 @@ public String deleteee(@PathVariable int id){
 	compteRepository.deleteById(id);    
     return "redirect:/compte";  
 }
+/**********************************************************************crudd matiere**************************************************************************/
 
-	
+
+/**********affiche**********************/
+
+@RequestMapping(value = "/matiere" )
+	public String tester9(Model model){
+		List<Matiere> matieres= matiereRepository.findAll();
+		model.addAttribute("listematieres",matieres);
+	return "VueMatiere";
+	}
+
+/**********ajouter**********************/
+@RequestMapping(value = "/ajoutermat",method = RequestMethod.GET )
+	public String form7(Model model){
+		model.addAttribute("listematieres",new Matiere());
+	return "ajouterMatiere";
+	}
+/**********edit**********************/
+@RequestMapping(value = "editmat",method = RequestMethod.GET )
+public String editmat(Model model,int id_Matiere){
+	Optional<Matiere> p=matiereRepository.findById(id_Matiere);
+	 if(p.isPresent()) {
+		
+		 Matiere matiere = (Matiere) p.get();
+		  model.addAttribute("listematieres",matiere);
+		  }
+return "ajouterMatiere";
+}
+/********************************save***********************************/
+@RequestMapping(value="/savemat",method = RequestMethod.POST)    
+public String save5(Model model, Matiere matiere){    
+	matiereRepository.save(matiere);
+    return "redirect:/matiere";    
+}
+/**********delete**********************/
+
+@RequestMapping(value="/deletemat/{id}",method = RequestMethod.GET)    
+public String deletemat(@PathVariable int id){    
+	matiereRepository.deleteById(id);    
+    return "redirect:/matiere";  
+}
 }
