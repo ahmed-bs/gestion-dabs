@@ -28,9 +28,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.ClasseRepository;
+import com.example.dao.CompteRepository;
 import com.example.dao.UtilisateurRepository;
 import com.example.entities.Admin;
 import com.example.entities.Classe;
+import com.example.entities.Compte;
 import com.example.entities.Enseignant;
 import com.example.entities.Etudiant;
 import com.example.entities.Utilisateur;
@@ -42,7 +44,8 @@ public class CatController {
  UtilisateurRepository utilisateurRepository;
 	@Autowired 
 	ClasseRepository classeRepository;
-	
+	@Autowired 
+	CompteRepository compteRepository;
 		//*********************index controller*********************/
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
@@ -234,4 +237,49 @@ public class CatController {
 		classeRepository.deleteById(id);    
         return "redirect:/index";  
 }
+
+/**********************************************************************crudd compte **************************************************************************/
+
+
+/**********affiche**********************/
+
+@RequestMapping(value = "/compte" )
+	public String tester8(Model model){
+		List<Compte> Comptes= compteRepository.findAll();
+		model.addAttribute("listeComptes",Comptes);
+	return "VueCompte";
+	}
+
+/**********ajouter**********************/
+@RequestMapping(value = "/ajoutercomp",method = RequestMethod.GET )
+	public String form6(Model model){
+		model.addAttribute("listeComptes",new Compte());
+	return "ajouterCompte";
+	}
+/**********edit**********************/
+@RequestMapping(value = "editcomp",method = RequestMethod.GET )
+public String editcomp(Model model,int id_compte){
+	Optional<Compte> p=compteRepository.findById(id_compte);
+	 if(p.isPresent()) {
+		
+		 Compte compte = (Compte) p.get();
+		  model.addAttribute("listeComptes",compte);
+		  }
+return "ajouterCompte";
+}
+/********************************save***********************************/
+@RequestMapping(value="/savecomp",method = RequestMethod.POST)    
+public String save4(Model model, Compte compte){    
+	compteRepository.save(compte);
+    return "redirect:/compte";    
+}
+/**********delete**********************/
+
+@RequestMapping(value="/deleteee/{id}",method = RequestMethod.GET)    
+public String deleteee(@PathVariable int id){    
+	compteRepository.deleteById(id);    
+    return "redirect:/compte";  
+}
+
+	
 }

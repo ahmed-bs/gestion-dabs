@@ -15,11 +15,21 @@
 <a href="/VueUpdate">ajouter Etudiant </a>  
 <br>
 <a href="/ajouterAd">ajouter  Admin</a>  
-<br><br>
+<br>
+<a href=/classe>voir  classe</a>  
+<br>
+<a href=/ajoutercl>ajouter classe</a>  
+<br>
 <a href=/Etudiant>voir  Etudiant</a>  
 <br>
 <a href=/Enseignant>voir  Enseignant</a>  
 <br>
+<br>
+<a href=/compte>voir  compte</a>  
+<br>
+<a href=/ajoutercomp>ajouter compte</a>  
+<br>
+
 <a href=/Admin>voir  Admin</a>  
 <br><br>
 

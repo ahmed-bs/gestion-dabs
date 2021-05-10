@@ -8,7 +8,6 @@
 <head>
 <title>test</title>
 </head>
-
 <body>
 
 <a href="/ajouterEn">ajouter Enseignant </a>  
@@ -22,13 +21,10 @@
 <a href=/Enseignant>voir  Enseignant</a>  
 <br>
 <a href=/Admin>voir  Admin</a>  
-<br>
-<a href=/formAbs>cheack absenceeeee</a>  
-<br>
-<a href=/classe>voir  class</a>  
-<br>
-<a href=/ajoutercl>ajouter classe</a>  
-<br>
+<br><br>
+
+<a href=/formAbs>cheack absence</a>  
+
 </body>
 
 </html>
