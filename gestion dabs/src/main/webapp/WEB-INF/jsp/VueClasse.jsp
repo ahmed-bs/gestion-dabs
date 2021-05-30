@@ -61,6 +61,7 @@
 
     <td><a href="deletee/${place.id_class}" >Delete</a></td>
      <td><a href="editcl?id_class=${place.id_class}">Edit</a></td> 
+      <td><a href="entrercl?id_class=${place.id_class}">entrer</a></td> 
   </tr>
 
 </c:forEach>

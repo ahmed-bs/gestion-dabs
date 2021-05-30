@@ -5,8 +5,10 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -17,10 +19,11 @@ import javax.persistence.OneToMany;
 @DiscriminatorValue("en")
 public class Enseignant extends Utilisateur implements Serializable  {
 private int numCnrps;
- @OneToMany
+ @OneToMany(fetch = FetchType.LAZY)
 	private List<Matiere> matiere = new ArrayList<Matiere>();
- @ManyToMany
- @JoinColumn(name="code_classe")
+ 
+ 
+ @ManyToMany(mappedBy="classProf", cascade = CascadeType.ALL)
  private List<Classe> Classes = new ArrayList<Classe>();
 public Enseignant() {
 	super();

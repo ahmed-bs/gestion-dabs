@@ -6,7 +6,9 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -16,11 +18,14 @@ import javax.persistence.Table;
 public class Etudiant  extends Utilisateur implements Serializable{
 	private int abs=0;
 	private int numIns;
-	  @ManyToOne
+	  @ManyToOne(fetch = FetchType.LAZY)
 	 @JoinColumn(name="code_classe")
 	 private Classe classe;
-	  @ManyToMany
-	  private List<Matiere> matieres = new ArrayList<Matiere>();
+	  @ManyToMany(fetch = FetchType.LAZY)
+	  
+	  
+	  @JoinTable(name = "seance", joinColumns = @JoinColumn(name = "id_sc_ens"))
+	  private List<Seance> seances = new ArrayList<Seance>();
 		public Etudiant() {
 			super();
 		}

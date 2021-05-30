@@ -37,6 +37,7 @@ import com.example.entities.Admin;
 import com.example.entities.Classe;
 import com.example.entities.Compte;
 import com.example.entities.Enseignant;
+import com.example.entities.Enseigne;
 import com.example.entities.Etudiant;
 import com.example.entities.Utilisateur;
 
@@ -183,9 +184,7 @@ public class CatController {
 			  model.addAttribute("listeUtilisateurs",utilisateur);
 			  }
 	return "confirmationAbsence";
-	}
-
-	
+	}	
 	@RequestMapping(value="/saveAbs",method = RequestMethod.POST)    
     public String saveAbs(Model model, Etudiant utilisateur){    
 		utilisateurRepository.save(utilisateur);
@@ -229,6 +228,8 @@ public class CatController {
 			  }
 	return "ajouterClasse";
 	}
+	/********************************entrer***********************************/
+
 /********************************save***********************************/
 	@RequestMapping(value="/savecl",method = RequestMethod.POST)    
     public String save(Model model, Classe classe){    

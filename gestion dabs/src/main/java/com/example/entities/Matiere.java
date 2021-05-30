@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,11 +24,10 @@ public class Matiere implements Serializable{
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_Matiere;
 	 private String name;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="code_enseignant")
   private Enseignant enseignant;
-    @ManyToMany
-	  private List<Etudiant> etudiants = new ArrayList<Etudiant>();
+
     
 	public int getId_Matiere() {
 		return id_Matiere;
@@ -51,12 +51,12 @@ public class Matiere implements Serializable{
 		this.id_Matiere = id_Matiere;
 		this.name = name;
 	}
-	public Matiere(int id_Matiere, String name, Enseignant enseignant, List<Etudiant> etudiants) {
+	public Matiere(int id_Matiere, String name, Enseignant enseignant) {
 		super();
 		this.id_Matiere = id_Matiere;
 		this.name = name;
 		this.enseignant = enseignant;
-		this.etudiants = etudiants;
+
 	}
 
 	

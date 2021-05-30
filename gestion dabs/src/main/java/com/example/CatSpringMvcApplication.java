@@ -51,8 +51,8 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	    ipRepository.save(new  Admin ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"ad",127477));
 	    icRepository.save(new  Classe(0, "dsi22", null, null));
 	    compRepository.save(new  Compte(0,null, "hghhy",12541,"hhdgj"));
-	    matRepository.save(new  Matiere(0,"php",null, null));
-	    matRepository.save(new  Matiere(0,"jee",null, null));
+	    matRepository.save(new  Matiere(0,"php",null));
+	    matRepository.save(new  Matiere(0,"jee",null));
 
 	}
 
