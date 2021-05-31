@@ -22,8 +22,7 @@ public class Etudiant  extends Utilisateur implements Serializable{
 	 @JoinColumn(name="code_classe")
 	 private Classe classe;
 	  
-	  @ManyToMany(fetch = FetchType.LAZY)
-	  @JoinTable(name = "seance", joinColumns = @JoinColumn(name = "id_sc_ens"))
+	  @ManyToMany(mappedBy="etudiant",fetch = FetchType.LAZY)
 	  private List<Seance> seances = new ArrayList<Seance>();
 		public Etudiant() {
 			super();

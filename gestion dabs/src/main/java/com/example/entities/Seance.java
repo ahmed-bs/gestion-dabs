@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
+import org.springframework.beans.factory.annotation.Autowired;
 @Entity
 public class Seance {
 
@@ -23,7 +25,8 @@ public class Seance {
 private Enseigne enseigne;
 
 @ManyToMany(fetch = FetchType.LAZY)
-@JoinTable(name = "absence", joinColumns = @JoinColumn(name = "id_seance"))
+@JoinTable(name = "absence",joinColumns = @JoinColumn(name = "seance_id"), 
+inverseJoinColumns = @JoinColumn(name = "etudiant_id"))
 private List<Etudiant> etudiant = new ArrayList<Etudiant>();
 
 
@@ -46,14 +49,25 @@ private int heure;
 
 
 
-public Seance(Enseigne enseigne, List<Etudiant> etudiant, int id_sc, Date date, int heure) {
+@Autowired
+public Seance(Enseigne enseigne, List<Etudiant> etudiant, Date date, int heure) {
 	super();
 	this.enseigne = enseigne;
 	this.etudiant = etudiant;
-	this.id_sc = id_sc;
+
 	this.date = date;
 	this.heure = heure;
 }
+
+public Seance() {
+	// TODO Auto-generated constructor stub
+}
+
+public Seance(Date date2, int j) {
+	// TODO Auto-generated constructor stub
+}
+
+
 
 public int getId_sc() {
 	return id_sc;

@@ -48,20 +48,21 @@
 <thead>
   <tr>
     <th>id</th>
-    <th>name</th>
+    <th>date</th>
+    <th>heure</th>
     <th>supprimer</th>
     <th>edit</th>
   </tr>
   </thead>
   <tbody>
- <c:forEach items="${listeClasses}" var="place">
+ <c:forEach items="${listeseances}" var="place">
   <tr>
-    <td >${place.id_class} </td>
-    <td >${place.name}</td>
+    <td >${place.id_sc} </td>
+    <td >${place.date}</td>
+     <td >${place.heure}</td>
+    <td><a href="deletesean/${place.id_sc}" >Delete</a></td>
+     <td><a href="editsean?id_sc=${place.id_sc}">Edit</a></td> 
 
-    <td><a href="deletee/${place.id_class}" >Delete</a></td>
-     <td><a href="editcl?id_class=${place.id_class}">Edit</a></td> 
-      <td><a href="entrercl?id_class=${place.id_class}">entrer</a></td> 
   </tr>
 
 </c:forEach>

@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>   
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%> 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>test</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/> 
+<title>test</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,7 +30,7 @@
        <li class="nav-item">
         <a class="nav-link" href="/compte">compte</a>
       </li>
-        <li class="nav-item">
+       <li class="nav-item">
         <a class="nav-link" href="/Admin">Admin</a>
       </li>
          <li class="nav-item">
@@ -43,36 +45,42 @@
     </ul>
   </div>
 </nav>
-<h2> Affichage les classes</h2>
+<h2> Affichage des seances</h2>
+  
 <table border="1">
 <thead>
   <tr>
     <th>id</th>
-    <th>name</th>
-    <th>supprimer</th>
-    <th>edit</th>
+    <th>date</th>
+    <th>heure</th>
+    
   </tr>
   </thead>
   <tbody>
- <c:forEach items="${listeClasses}" var="place">
-  <tr>
-    <td >${place.id_class} </td>
-    <td >${place.name}</td>
+ <c:forEach items="${listeseances}" var="place" >
 
-    <td><a href="deletee/${place.id_class}" >Delete</a></td>
-     <td><a href="editcl?id_class=${place.id_class}">Edit</a></td> 
-      <td><a href="entrercl?id_class=${place.id_class}">entrer</a></td> 
+ 
+  <tr>
+   <td >${place.id_sc} </td>
+    <td >${place.date}</td>
+    <td >${place.heure}</td>
+
+     <td><a href="editsean?id_sc=${place.id_sc}">edit</a></td> 
+      
   </tr>
 
 </c:forEach>
+
+      
+     
   </tbody> 
+ 
 </table>
-<a href=/index>page d'acceuil</a> 
+
+
+<a href=/index>page d'acceuil</a>  
                    </div>
       </div>
-       <tr>
-                    <td colspan="2"><input type="submit" value="seance"></td>
-                </tr>  
        </div>
        </div>
 <footer class="bg-light text-center text-white">
@@ -147,6 +155,5 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
-</html>

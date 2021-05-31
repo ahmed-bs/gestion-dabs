@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 import com.example.entities.Etudiant;
 import com.example.entities.Matiere;
-
+import com.example.entities.Seance;
 import javax.websocket.server.PathParam;
 import org.springframework.data.repository.CrudRepository;
 
@@ -32,6 +32,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.dao.ClasseRepository;
 import com.example.dao.CompteRepository;
 import com.example.dao.MatiereRepository;
+
+import com.example.dao.SeanceRepository;
 import com.example.dao.UtilisateurRepository;
 import com.example.entities.Admin;
 import com.example.entities.Classe;
@@ -52,6 +54,8 @@ public class CatController {
 	CompteRepository compteRepository;
 	@Autowired 
 	MatiereRepository matiereRepository;
+	@Autowired 
+	SeanceRepository seanceRepository;
 		//*********************index controller*********************/
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
@@ -285,6 +289,48 @@ public String save4(Model model, Compte compte){
 public String deleteee(@PathVariable int id){    
 	compteRepository.deleteById(id);    
     return "redirect:/compte";  
+}
+/**********************************************************************crudd seance**************************************************************************/
+
+
+/**********affiche**********************/
+
+@RequestMapping(value = "/seance" )
+	public String tester10(Model model){
+		List<Seance> seances= seanceRepository.findAll();
+		model.addAttribute("listeseances",seances);
+	return "VueSeance";
+	}
+
+/**********ajouter**********************/
+@RequestMapping(value = "/ajoutersean",method = RequestMethod.GET )
+	public String form8(Model model){
+		model.addAttribute("listeseances",new Seance());
+	return "ajouterSeance";
+	}
+/**********edit**********************/
+@RequestMapping(value = "editsean",method = RequestMethod.GET )
+public String editsean(Model model,int id_sc){
+	Optional<Seance> p=seanceRepository.findById(id_sc);
+	 if(p.isPresent()) {
+		
+		 Seance Seance = (Seance) p.get();
+		  model.addAttribute("listeseances",Seance);
+		  }
+return "ajouterSeance";
+}
+/********************************save***********************************/
+@RequestMapping(value="/savesean",method = RequestMethod.POST)    
+public String save6(Model model,Seance seance){    
+	seanceRepository.save(seance);
+    return "redirect:/seance";    
+}
+/**********delete**********************/
+
+@RequestMapping(value="/deletesean/{id}",method = RequestMethod.GET)    
+public String deletesean(@PathVariable int id){    
+	seanceRepository.deleteById(id);    
+    return "redirect:/seance";  
 }
 /**********************************************************************crudd matiere**************************************************************************/
 

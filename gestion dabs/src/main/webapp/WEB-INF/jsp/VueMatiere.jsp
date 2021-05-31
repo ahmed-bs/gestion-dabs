@@ -71,6 +71,9 @@
 <a href=/index>page d'acceuil</a>  
    </div>
       </div>
+      <tr>
+                    <td colspan="2"><input type="submit" value="classe"></td>
+                </tr>  
        </div>
        </div>
 <footer class="bg-light text-center text-white">
@@ -140,6 +143,7 @@
     © 2021 Welcome:
     <a class="text-white" href="">IsetBizete.com</a>
   </div>
+  
   <!-- Copyright -->
 </footer>
 </div>
