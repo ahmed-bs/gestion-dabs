@@ -49,7 +49,7 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		Date date = new Date();
+		Date date = new Date(2000-11-21);
 	    ipRepository.save(new Enseignant ( "dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"en",123456,null));
 	    ipRepository.save(new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",123456));
 	    ipRepository.save(new  Admin ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"ad",127477));
@@ -63,8 +63,7 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	    compRepository.save(new  Compte(0,null, "hghhy",12541,"hhdgj"));
 	    matRepository.save(new  Matiere(0,"php",null));
 	    matRepository.save(new  Matiere(0,"jee",null));
-	  seanRepository.save(new Seance(null,null,date,2));
-
+	  seanRepository.save( new Seance(null,null,date,2));
 
 	}
 

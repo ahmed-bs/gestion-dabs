@@ -11,6 +11,7 @@ import com.example.entities.Seance;
 public interface SeanceRepository extends CrudRepository<Seance, Integer>,JpaRepository<Seance, Integer> {
 
 
+
 	
 
 
