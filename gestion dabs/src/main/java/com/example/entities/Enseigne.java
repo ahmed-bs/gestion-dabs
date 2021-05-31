@@ -19,20 +19,19 @@ public class Enseigne {
 	@Id
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_ens;
-    @ManyToMany(fetch = FetchType.LAZY)
-	  private List<Etudiant> etudiants = new ArrayList<Etudiant>();
-	@OneToMany(mappedBy="enseigne", cascade = CascadeType.ALL)	
+  
+	@OneToMany(mappedBy="enseigne",fetch = FetchType.LAZY)	
 	  private List<Seance> seance = new ArrayList<Seance>();
 	
-	 @JoinColumn
-	 private Classe classe;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_Matiere")
+	private Matiere matiere;
 	
-	 @JoinColumn
-	 private Enseignant enseignant;
-
-	 @JoinColumn
-	 private Matiere matiere;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="numCin_enseignant")
+	private Enseignant enseignant;
 	
-	
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="enseigne")
+	private Classe classe;
 }

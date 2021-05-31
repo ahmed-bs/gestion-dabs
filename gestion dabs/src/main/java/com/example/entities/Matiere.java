@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
@@ -24,10 +25,17 @@ public class Matiere implements Serializable{
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_Matiere;
 	 private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="code_enseignant")
-  private Enseignant enseignant;
-
+ 
+	 
+	 
+	 
+		@OneToMany(mappedBy="matiere",fetch = FetchType.LAZY)	
+		  private List<Enseigne> enseigne = new ArrayList<Enseigne>();
+		 
+	 
+	 
+	 
+	 
     
 	public int getId_Matiere() {
 		return id_Matiere;
@@ -51,11 +59,11 @@ public class Matiere implements Serializable{
 		this.id_Matiere = id_Matiere;
 		this.name = name;
 	}
-	public Matiere(int id_Matiere, String name, Enseignant enseignant) {
+	public Matiere(int id_Matiere, String name, List<Enseigne> enseigne) {
 		super();
 		this.id_Matiere = id_Matiere;
 		this.name = name;
-		this.enseignant = enseignant;
+		this.enseigne = enseigne;
 
 	}
 

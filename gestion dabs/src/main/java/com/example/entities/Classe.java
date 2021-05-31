@@ -25,12 +25,12 @@ public class Classe implements Serializable {
 	  @NotNull
 private int id_class;
 	private String name ;
-	  @OneToMany(fetch = FetchType.LAZY)
+	  @OneToMany(mappedBy="classe",fetch = FetchType.LAZY)
 	private List<Etudiant> etudiants = new ArrayList<Etudiant>();
 	
-	  @ManyToMany(fetch = FetchType.LAZY)
-	  @JoinColumn(name="code_enseignant")
-	  private List<Enseignant> classProf = new ArrayList<Enseignant>();
+	  @OneToMany(mappedBy="classe",fetch = FetchType.LAZY)
+		private List<Enseigne> enseigne = new ArrayList<Enseigne>();
+	
 public Classe() {
 	super();
 }
@@ -50,12 +50,12 @@ public void setName(String name) {
 	this.name = name;
 }
 
-public Classe(int id_class, String name, List<Etudiant> etudiants, List<Enseignant> classProf) {
+public Classe(int id_class, String name, List<Etudiant> etudiants, List<Enseigne> enseigne) {
 	super();
 	this.id_class = id_class;
 	this.name = name;
 	this.etudiants = etudiants;
-	this.classProf = classProf;
+	this.enseigne = enseigne;
 }
 
 public int getId_class() {

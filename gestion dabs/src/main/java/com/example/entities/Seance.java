@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Seance {
 
+
+
 @ManyToOne(fetch = FetchType.LAZY)	
 @JoinColumn(name = "id_sc_ens")
 private Enseigne enseigne;
@@ -44,7 +46,14 @@ private int heure;
 
 
 
-
+public Seance(Enseigne enseigne, List<Etudiant> etudiant, int id_sc, Date date, int heure) {
+	super();
+	this.enseigne = enseigne;
+	this.etudiant = etudiant;
+	this.id_sc = id_sc;
+	this.date = date;
+	this.heure = heure;
+}
 
 public int getId_sc() {
 	return id_sc;
@@ -65,11 +74,6 @@ public void setHeure(int heure) {
 	this.heure = heure;
 }
 
-public Seance(int id_sc, Date date, int heure) {
-	super();
-	this.id_sc = id_sc;
-	this.date = date;
-	this.heure = heure;
-}
+
 
 }
