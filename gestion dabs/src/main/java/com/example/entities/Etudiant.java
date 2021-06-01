@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @Entity
 @DiscriminatorValue("et")
 public class Etudiant  extends Utilisateur implements Serializable{
-	private int abs=0;
 	private int numIns;
 	  @ManyToOne(fetch = FetchType.LAZY)
 	 @JoinColumn(name="code_classe")
@@ -29,10 +28,28 @@ public class Etudiant  extends Utilisateur implements Serializable{
 		}
 	
 
-	public Etudiant( String nom, String prenom,String email, String adresse, int tel,String role,int numIns) {
-		super(  nom, prenom,email, adresse,tel,role);
-		this.numIns = numIns;
-	}
+
+	/**
+		 * @param nom
+		 * @param prenom
+		 * @param email
+		 * @param adresse
+		 * @param tel
+		 * @param role
+		 * @param abs
+		 * @param numIns
+		 * @param classe
+		 * @param seances
+		 */
+		public Etudiant(String nom, String prenom, String email, String adresse, int tel, String role,
+				int numIns, Classe classe, List<Seance> seances) {
+			super(nom, prenom, email, adresse, tel, role);
+			this.numIns = numIns;
+			this.classe = classe;
+			this.seances = seances;
+		}
+
+
 
 	public int getNumIns() {
 		return numIns;
@@ -43,14 +60,6 @@ public class Etudiant  extends Utilisateur implements Serializable{
 	}
 
 
-	public int getAbs() {
-		return abs;
-	}
-
-
-	public void setAbs(int abs) {
-		this.abs = abs;
-	}
 
 
 

@@ -31,6 +31,28 @@ public class Enseigne {
 	@JoinColumn(name="numCin_enseignant")
 	private Enseignant enseignant;
 	
+	/**
+	 * 
+	 */
+	public Enseigne() {
+		super();
+	}
+
+	/**
+	 * @param id_ens
+	 * @param seance
+	 * @param matiere
+	 * @param enseignant
+	 * @param classe
+	 */
+	public Enseigne( List<Seance> seance, Matiere matiere, Enseignant enseignant, Classe classe) {
+		super();
+		this.seance = seance;
+		this.matiere = matiere;
+		this.enseignant = enseignant;
+		this.classe = classe;
+	}
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="enseigne")
 	private Classe classe;

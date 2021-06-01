@@ -46,13 +46,6 @@ public void setRole(String role) {
 public Compte() {
 	super();
 }
-public Compte(int id_compte, String login_name, int password, String role) {
-	super();
-	this.id_compte = id_compte;
-	this.login_name = login_name;
-	this.password = password;
-	this.role = role;
-}
 public Compte(int id_compte, Utilisateur utilisateur, String login_name, int password, String role) {
 	super();
 	this.id_compte = id_compte;
