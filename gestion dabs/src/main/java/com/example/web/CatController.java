@@ -63,6 +63,12 @@ public class CatController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/utilisateurlist" )	
+	public String test2(Model model){
+
+		return "utilisateurlist";
+	}
+	
 	//*****************************affiche ************************************/
 	@RequestMapping(value = "/Etudiant" )
 	public String tester(Model model){

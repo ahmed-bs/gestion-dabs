@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>   
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%> 
+
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<title>gestion des absences</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/> 
-<title>gestion des absences</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand bg-primary text-white" href="/index">gestion des absences</a>
+  <a class="navbar-brand bg-primary text-white "href="/index">gestion des absences</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -44,40 +44,20 @@
     </ul>
   </div>
 </nav>
-<h2> Affichage des seances</h2>
-  
-<table class="table table-striped">
-<thead>
-  <tr>
-    <th>id</th>
-    <th>date</th>
-    <th>heure</th>
-    
-  </tr>
-  </thead>
-  <tbody>
- <c:forEach items="${listeseances}" var="place" >
-
- 
-  <tr>
-   <td >${place.id_sc} </td>
-    <td >${place.date}</td>
-    <td >${place.heure}</td>
-
-     <td><a href="editsean?id_sc=${place.id_sc}">edit</a></td> 
-      
-  </tr>
-
-</c:forEach>
-
-      
-     
-  </tbody> 
- 
-</table>
-
-
-<a href=/index>page d'acceuil</a>  
+<div class="container my-4 ">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h2 class="my-3 text-danger">liste utilisateurs</h2>
+                    <div class="list-group">
+                        <a class="list-group-item" href="/Enseignant"> Enseignant</a>
+                        <a class="list-group-item" href="/Etudiant"> Etudiant  </a>
+                        <a class="list-group-item" href="/Admin"> Admin</a>
+                      
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div >
+                       
                    </div>
       </div>
        </div>
@@ -152,7 +132,10 @@
   <!-- Copyright -->
 </footer>
 </div>
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </body>
+
+</html>
