@@ -39,7 +39,7 @@ private List<Etudiant> etudiant = new ArrayList<Etudiant>();
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private int id_sc;
-private Date date;
+private String date;
 private int heure;
 
 
@@ -50,12 +50,12 @@ private int heure;
 
 
 @Autowired
-public Seance(Enseigne enseigne, List<Etudiant> etudiant, Date date, int heure) {
+public Seance(Enseigne enseigne, List<Etudiant> etudiant, String string, int heure) {
 	super();
 	this.enseigne = enseigne;
 	this.etudiant = etudiant;
 
-	this.date = date;
+	this.date = string;
 	this.heure = heure;
 }
 
@@ -75,10 +75,10 @@ public int getId_sc() {
 public void setId_sc(int id_sc) {
 	this.id_sc = id_sc;
 }
-public Date getDate() {
+public String getDate() {
 	return date;
 }
-public void setDate(Date date) {
+public void setDate(String date) {
 	this.date = date;
 }
 public int getHeure() {
