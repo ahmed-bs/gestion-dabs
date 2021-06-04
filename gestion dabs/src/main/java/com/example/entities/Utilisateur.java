@@ -22,7 +22,13 @@ import com.sun.istack.NotNull;
 @DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING)
 public abstract class Utilisateur implements Serializable{
 
-	  @Id
+	  public Compte getCompte() {
+		return compte;
+	}
+	public void setCompte(Compte compte) {
+		this.compte = compte;
+	}
+	@Id
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	  @NotNull
 private int numCin;

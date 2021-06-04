@@ -24,6 +24,21 @@ public class Seance {
 @JoinColumn(name = "id_sc_ens")
 private Enseigne enseigne;
 
+public List<Etudiant> getEtudiant() {
+	return etudiant;
+}
+
+public void setEtudiant(List<Etudiant> etudiant) {
+	this.etudiant = etudiant;
+}
+
+public Enseigne getEnseigne() {
+	return enseigne;
+}
+
+public void setEnseigne(Enseigne enseigne) {
+	this.enseigne = enseigne;
+}
 @ManyToMany(fetch = FetchType.LAZY)
 @JoinTable(name = "absence",joinColumns = @JoinColumn(name = "seance_id"), 
 inverseJoinColumns = @JoinColumn(name = "etudiant_id"))

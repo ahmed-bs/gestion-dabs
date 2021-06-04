@@ -8,6 +8,8 @@ import com.example.entities.Etudiant;
 import com.example.entities.Matiere;
 import com.example.entities.Seance;
 import javax.websocket.server.PathParam;
+
+import org.springframework.data.domain.Page;
 import org.springframework.data.repository.CrudRepository;
 
 
@@ -31,6 +33,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.ClasseRepository;
 import com.example.dao.CompteRepository;
+import com.example.dao.EnseRepository;
 import com.example.dao.MatiereRepository;
 
 import com.example.dao.SeanceRepository;
@@ -42,6 +45,7 @@ import com.example.entities.Enseignant;
 import com.example.entities.Enseigne;
 import com.example.entities.Etudiant;
 import com.example.entities.Utilisateur;
+
 
 @Controller
 public class CatController {
@@ -56,6 +60,9 @@ public class CatController {
 	MatiereRepository matiereRepository;
 	@Autowired 
 	SeanceRepository seanceRepository;
+	@Autowired 
+	EnseRepository enseRepository;
+	
 		//*********************index controller*********************/
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
@@ -217,6 +224,7 @@ public class CatController {
 	public String tester7(Model model){
 		List<Classe> Classes= classeRepository.findAll();
 		model.addAttribute("listeClasses",Classes);
+
 	return "VueClasse";
 	}
 
@@ -380,4 +388,86 @@ public String deletemat(@PathVariable int id){
 	matiereRepository.deleteById(id);    
     return "redirect:/matiere";  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**********starter**********************/
+
+
+@RequestMapping("/entrercl")
+public String consulterCompte(Model model, int id_class) {
+//compléter le code
+
+	model.addAttribute("id_class",id_class);
+	List<Enseigne> Enseignes= enseRepository.findAll();
+	model.addAttribute("Enseignes",Enseignes);
+	
+
+	
+return "redirect:/seance2?id_class="+id_class;
+}
+/**********affiche seance**********************/
+
+
+
+@RequestMapping(value = "/seance2" )
+	public String testeqq(Model model,int id_class){
+		List<Seance> seances= seanceRepository.findAll();
+		model.addAttribute("listeseances",seances);
+			
+		Enseigne enseigness=enseRepository.getOne(id_class);
+		model.addAttribute("enseigness",enseigness);	
+	    model.addAttribute("id_class",id_class);	
+			
+	return "VueSeance4profs";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

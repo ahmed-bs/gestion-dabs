@@ -24,6 +24,22 @@ public class Classe implements Serializable {
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	  @NotNull
 private int id_class;
+	public List<Etudiant> getEtudiants() {
+		return etudiants;
+	}
+
+	public void setEtudiants(List<Etudiant> etudiants) {
+		this.etudiants = etudiants;
+	}
+
+	public List<Enseigne> getEnseigne() {
+		return enseigne;
+	}
+
+	public void setEnseigne(List<Enseigne> enseigne) {
+		this.enseigne = enseigne;
+	}
+
 	private String name ;
 	  @OneToMany(mappedBy="classe",fetch = FetchType.LAZY)
 	private List<Etudiant> etudiants = new ArrayList<Etudiant>();

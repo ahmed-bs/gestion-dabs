@@ -72,10 +72,10 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	    Enseignant en3=new Enseignant ( "dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"en",123456,enseigne);
 	  
 	    //class
-	    Classe c1=new  Classe(0, "dsi22", etudiants, enseigne);
+	    Classe c1=new  Classe(1, "dsi22", etudiants, enseigne);
 	    Classe c2=new  Classe(2, "dsi21", etudiants, enseigne);
 	    Classe c3=new  Classe(3, "sys22", etudiants, enseigne);
-	    Classe c4=new  Classe(1, "dsi32", etudiants, enseigne);	
+	    Classe c4=new  Classe(4, "dsi32", etudiants, enseigne);	
 	 
 	  //etudiant
 	    Etudiant et1 =new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",2,c1,seance);
@@ -83,10 +83,10 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	    Etudiant et3 =new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",2,c3,seance);
 	 
 	    //matiere
-	    Matiere m=new  Matiere(0,"php",enseigne);
-	    Matiere m1=new  Matiere(1,"math",enseigne);
-	    Matiere m2=new  Matiere(2,"poo",enseigne);
-	    Matiere m3=new  Matiere(3,"jee",enseigne);
+	    Matiere m=new  Matiere(1,"php",enseigne);
+	    Matiere m1=new  Matiere(2,"math",enseigne);
+	    Matiere m2=new  Matiere(3,"poo",enseigne);
+	    Matiere m3=new  Matiere(4,"jee",enseigne);
 	  
 	    
 	    //enseigne
@@ -100,9 +100,9 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	    enseigne.add(es4);
 	  
 	    //seance
-	    Seance s1=new Seance(es1,etudiants,dateFormat.format(date).toString(),2);
-	    Seance s2=new Seance(es3,etudiants,dateFormat.format(date).toString(),2);
-	    Seance s3=new Seance(es4,etudiants,dateFormat.format(date).toString(),2); 
+	    Seance s1=new Seance(es1,etudiants,dateFormat.format(date).toString(),10);
+	    Seance s2=new Seance(es3,etudiants,dateFormat.format(date).toString(),8);
+	    Seance s3=new Seance(es4,etudiants,dateFormat.format(date).toString(),12); 
 	    seance.add(s1);
 	    seance.add(s2);
 	    seance.add(s3);

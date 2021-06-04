@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand bg-primary text-white " href="/index">gestion des absences</a>
+  <a class="navbar-brand bg-primary text-white "href="/index">gestion des absences</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -42,40 +42,39 @@
     </ul>
   </div>
 </nav>
-<h2> Affichage des Enseignants</h2>
-<table class="table table-striped">
+   <div th:if="${enseigness.classe.id_class}">
+<h2> Affichage les classes:${enseigness.classe.name}</h2>
+
+<table class="table table-striped" >
 <thead>
   <tr>
-    <th>numCin</th>
-    <th>nom</th>
-    <th>prenom</th>
-    <th>email</th>
-    <th>adresse</th>
-    <th>tel</th>
-    <th>numCnrps</th>
+    <th>id</th>
+    <th>date</th>
+    <th>heure</th>
     <th>supprimer</th>
     <th>edit</th>
   </tr>
   </thead>
   <tbody>
- <c:forEach items="${listeUtilisateurs}" var="place">
-  <c:if test = "${place.role=='en'}">
+ 
+ <c:forEach items="${listeseances}" var="place">
+ 
   <tr>
-    <td >${place.numCin} </td>
-    <td >${place.nom}</td>
-    <td >${place.prenom}</td>
-    <td >${place.email}</td>
-    <td >${place.adresse}</td>
-    <td >${place.tel}</td>
-     <td >${place.numCnrps}</td>
-    <td><a href="delete/${place.numCin}" >Delete</a></td>
-     <td><a href="editEn?numCin=${place.numCin}">Edit</a></td> 
-  </tr>
+    <c:if test = "${place.enseigne.id_ens==enseigness.id_ens}">
+    <td >${place.id_sc} </td>
+    <td >${place.date}</td>
+     <td >${place.heure}</td>
+    <td><a href="deletesean/${place.id_sc}" >Delete</a></td>
+     <td><a href="editsean?id_sc=${place.id_sc}">Edit</a></td> 
 </c:if>
+  </tr>
+
 </c:forEach>
+
   </tbody> 
 </table>
-<a href=/index>page d'acceuil</a>  
+</div>
+<a href=/index>page d'acceuil</a> 
 
 <footer class="bg-light text-center text-white">
   <!-- Grid container -->
@@ -149,6 +148,6 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> 
 </body>
 </html>

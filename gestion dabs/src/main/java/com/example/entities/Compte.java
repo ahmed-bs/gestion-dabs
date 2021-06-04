@@ -13,6 +13,12 @@ public class Compte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 private int id_compte;
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "numCin")
 	private Utilisateur utilisateur;

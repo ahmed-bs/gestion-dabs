@@ -20,6 +20,46 @@ public class Enseigne {
 	  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_ens;
   
+	public int getId_ens() {
+		return id_ens;
+	}
+
+	public void setId_ens(int id_ens) {
+		this.id_ens = id_ens;
+	}
+
+	public List<Seance> getSeance() {
+		return seance;
+	}
+
+	public void setSeance(List<Seance> seance) {
+		this.seance = seance;
+	}
+
+	public Matiere getMatiere() {
+		return matiere;
+	}
+
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
+	}
+
+	public Enseignant getEnseignant() {
+		return enseignant;
+	}
+
+	public void setEnseignant(Enseignant enseignant) {
+		this.enseignant = enseignant;
+	}
+
+	public Classe getClasse() {
+		return classe;
+	}
+
+	public void setClasse(Classe classe) {
+		this.classe = classe;
+	}
+
 	@OneToMany(mappedBy="enseigne",fetch = FetchType.LAZY)	
 	  private List<Seance> seance = new ArrayList<Seance>();
 	

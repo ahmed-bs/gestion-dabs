@@ -16,6 +16,28 @@ import javax.persistence.Table;
 @Entity
 @DiscriminatorValue("et")
 public class Etudiant  extends Utilisateur implements Serializable{
+	public Classe getClasse() {
+		return classe;
+	}
+
+
+
+	public void setClasse(Classe classe) {
+		this.classe = classe;
+	}
+
+
+
+	public List<Seance> getSeances() {
+		return seances;
+	}
+
+
+
+	public void setSeances(List<Seance> seances) {
+		this.seances = seances;
+	}
+
 	private int numIns;
 	  @ManyToOne(fetch = FetchType.LAZY)
 	 @JoinColumn(name="code_classe")
