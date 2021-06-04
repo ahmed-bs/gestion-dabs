@@ -441,21 +441,49 @@ return "redirect:/seance2?id_class="+id_class;
 	}
 
 
+@RequestMapping(value = "/VueSeance4profs" )
+public String testerss(Model model,int id_class){
+	List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
+	model.addAttribute("listeUtilisateurs",Utilisateurss);
+	
+	Enseigne enseigness=enseRepository.getOne(id_class);
+	model.addAttribute("enseigness",enseigness);	
+	
+return "VueEtudiant4profs2";
+}
 
 
 
 
 
 
+@RequestMapping("/entrer4etuds")
+public String consulterr(Model model, int id_sc) {
+
+	model.addAttribute("id_sc",id_sc);
+	List<Enseigne> Enseignes= enseRepository.findAll();
+	model.addAttribute("Enseignes",Enseignes);
+	
+return "redirect:/4etuds?id_sc="+id_sc;
+}
 
 
 
 
 
-
-
-
-
+@RequestMapping(value = "/4etuds" )
+	public String testeqsq(Model model,int id_sc){
+		List<Seance> seances= seanceRepository.findAll();
+		model.addAttribute("listeseances",seances);
+			
+		Seance Seances=seanceRepository.getOne(id_sc);
+		model.addAttribute("Seances",Seances);	
+	 	System.out.println("***********************************************************************************");
+			
+		List<Utilisateur> Utilisateurs8 = utilisateurRepository.findAll();
+		model.addAttribute("listeUtilisateurss",Utilisateurs8);
+	return "VueEtudiant4profs2";
+	}
 
 
 

@@ -42,40 +42,45 @@
     </ul>
   </div>
 </nav>
-   <div th:if="${enseigness.classe.id_class}">
-<h2> Affichage les classes:${enseigness.classe.name}</h2>
-
-<table class="table table-striped" >
+<div  th:if="${Seances}">
+<h2> Affichage des etudiants de classe:${Seances.enseigne.classe.name} </h2>
+<table class="table table-striped">
 <thead>
   <tr>
-    <th>id</th>
-    <th>date</th>
-    <th>heure</th>
+    <th>numCin</th>
+    <th>nom</th>
+    <th>prenom</th>
+    <th>email</th>
+    <th>adresse</th>
+    <th>tel</th>
+    <th>numIns</th>
     <th>supprimer</th>
     <th>edit</th>
   </tr>
   </thead>
   <tbody>
- 
- <c:forEach items="${listeseances}" var="place">
- 
+ <c:forEach items="${listeUtilisateurss}" var="place">
+  <c:if test = "${place.role=='et'}">
+    <c:if test = "${place.classe.id_class==Seances.enseigne.classe.id_class}">
   <tr>
-    <c:if test = "${place.enseigne.id_ens==enseigness.id_ens}">
-    <td >${place.id_sc} </td>
-    <td >${place.date}</td>
-     <td >${place.heure}</td>
-    <td><a href="deletesean/${place.id_sc}" >Delete</a></td>
-     <td><a href="editsean?id_sc=${place.id_sc}">Edit</a></td> 
-          <td><a href="entrer4etuds?id_sc=${place.id_sc}">enter</a></td> 
-</c:if>
+    <td >${place.numCin} </td>
+    <td >${place.nom}</td>
+    <td >${place.prenom}</td>
+    <td >${place.email}</td>
+    <td >${place.adresse}</td>
+    <td >${place.tel}</td>
+     <td >${place.numIns}</td>
+    <td><a href="delete/${place.numCin}" >Delete</a></td>
+     <td><a href="edit?numCin=${place.numCin}">Edit</a></td> 
+     <td><a href="edit?numCin=${place.numCin}">Edit</a></td> 
   </tr>
-
+</c:if>
+</c:if>
 </c:forEach>
-
   </tbody> 
 </table>
-</div>
-<a href=/index>page d'acceuil</a> 
+ </div>
+<a href=/index>page d'acceuil</a>  
 
 <footer class="bg-light text-center text-white">
   <!-- Grid container -->
@@ -146,8 +151,9 @@
   </div>
   <!-- Copyright -->
 </footer>
+</div>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
 </html>
