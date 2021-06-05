@@ -79,6 +79,11 @@
 					<button type="submit" > absent </button>			
 		 </form:form>								
 	 </td> 
+	 <td>				
+     	<form:form action="/saveOperation2?numCin=${place.numCin}"   modelAttribute="listeUtilisateurs">				
+					<button type="submit" > retard </button>			
+		 </form:form>								
+	 </td> 
   </tr>
 </c:if>
 </c:if>
