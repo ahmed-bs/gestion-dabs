@@ -72,7 +72,29 @@
      <td >${place.numIns}</td>
     <td><a href="delete/${place.numCin}" >Delete</a></td>
      <td><a href="edit?numCin=${place.numCin}">Edit</a></td> 
-     <td><a href="edit?numCin=${place.numCin}">Edit</a></td> 
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     <td>				
+     
+     
+     
+     	<form th:action="@{/saveOperation?numCin=${place.numCin}}" method="post">				
+					<button type="submit"> Save </button>			
+		</form>					
+							
+							
+							
+							
+							</td> 
   </tr>
 </c:if>
 </c:if>

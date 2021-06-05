@@ -3,18 +3,13 @@ package com.example.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import com.sun.istack.NotNull;
 
 @Entity
@@ -66,11 +61,10 @@ public void setName(String name) {
 	this.name = name;
 }
 
-public Classe(int id_class, String name, List<Etudiant> etudiants, List<Enseigne> enseigne) {
+public Classe(int id_class, String name, List<Enseigne> enseigne) {
 	super();
 	this.id_class = id_class;
 	this.name = name;
-	this.etudiants = etudiants;
 	this.enseigne = enseigne;
 }
 

@@ -1,41 +1,21 @@
 package com.example.web;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import com.example.entities.Etudiant;
 import com.example.entities.Matiere;
 import com.example.entities.Seance;
-import javax.websocket.server.PathParam;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.repository.CrudRepository;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.BindingResultUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.example.dao.ClasseRepository;
 import com.example.dao.CompteRepository;
 import com.example.dao.EnseRepository;
 import com.example.dao.MatiereRepository;
-
 import com.example.dao.SeanceRepository;
 import com.example.dao.UtilisateurRepository;
 import com.example.entities.Admin;
@@ -43,9 +23,7 @@ import com.example.entities.Classe;
 import com.example.entities.Compte;
 import com.example.entities.Enseignant;
 import com.example.entities.Enseigne;
-import com.example.entities.Etudiant;
 import com.example.entities.Utilisateur;
-
 
 @Controller
 public class CatController {
@@ -478,12 +456,37 @@ return "redirect:/4etuds?id_sc="+id_sc;
 			
 		Seance Seances=seanceRepository.getOne(id_sc);
 		model.addAttribute("Seances",Seances);	
-	 	System.out.println("***********************************************************************************");
+	 	System.out.println("************************************tester***********************************************");
 			
 		List<Utilisateur> Utilisateurs8 = utilisateurRepository.findAll();
 		model.addAttribute("listeUtilisateurss",Utilisateurs8);
 	return "VueEtudiant4profs2";
 	}
+
+
+
+
+
+
+
+
+@RequestMapping(value="/saveOperation",method=RequestMethod.POST)
+public String saveOperation(Model model,int numCin) {
+ 	System.out.println("************************************nkbdfjkndsfnjkdnf***********************************************");
+	
+	
+	model.addAttribute("numCin",numCin);
+	System.out.print("22222222222222222222"+numCin);
+	System.out.print("6666666666666666666666666666666******************************************************");
+	
+		
+		
+return "redirect:/VueEtudiant4profs2";
+} 
+
+
+
+
 
 
 

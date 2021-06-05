@@ -2,7 +2,6 @@ package com.example;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +25,6 @@ import com.example.entities.Enseigne;
 import com.example.entities.Etudiant;
 import com.example.entities.Matiere;
 import com.example.entities.Seance;
-import com.example.entities.Utilisateur;
 
 @SpringBootApplication
 @ComponentScan
@@ -59,8 +57,6 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	    
 	  //  int id_ens, List<Seance> seance, Matiere matiere, Enseignant enseignant, Classe classe
 	    List<Enseigne> enseigne=new ArrayList<Enseigne>();
-	    List<Seance> seance=new ArrayList<Seance>();
-	    List<Etudiant> etudiants=new ArrayList<Etudiant>();
 	    //admin
 	    Admin ad1=new  Admin ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"ad",127477);
 	    Admin ad2=new  Admin ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"ad",127477);
@@ -72,15 +68,15 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	    Enseignant en3=new Enseignant ( "dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"en",123456,enseigne);
 	  
 	    //class
-	    Classe c1=new  Classe(1, "dsi22", etudiants, enseigne);
-	    Classe c2=new  Classe(2, "dsi21", etudiants, enseigne);
-	    Classe c3=new  Classe(3, "sys22", etudiants, enseigne);
-	    Classe c4=new  Classe(4, "dsi32", etudiants, enseigne);	
+	    Classe c1=new  Classe(1, "dsi22", enseigne);
+	    Classe c2=new  Classe(2, "dsi21", enseigne);
+	    Classe c3=new  Classe(3, "sys22", enseigne);
+	    Classe c4=new  Classe(4, "dsi32", enseigne);	
 	 
 	  //etudiant
-	    Etudiant et1 =new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",2,c1,seance);
-	    Etudiant et2 =new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",2,c2,seance);
-	    Etudiant et3 =new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",2,c3,seance);
+	    Etudiant et1 =new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",2,c1);
+	    Etudiant et2 =new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",2,c2);
+	    Etudiant et3 =new  Etudiant ("dorra", "ayari", "doura.ayari@gmail.com","soukra ariana",20484082,"et",2,c3);
 	 
 	    //matiere
 	    Matiere m=new  Matiere(1,"php",enseigne);
@@ -90,22 +86,19 @@ public class CatSpringMvcApplication implements CommandLineRunner{
 	  
 	    
 	    //enseigne
-	    Enseigne es1=new Enseigne(seance,m,en1,c1);
-	    Enseigne es2=new Enseigne(seance,m2,en2,c2);
-	    Enseigne es3=new Enseigne(seance,m1,en3,c3);
-	    Enseigne es4=new Enseigne(seance,m3,en1,c1);
+	    Enseigne es1=new Enseigne(m,en1,c1);
+	    Enseigne es2=new Enseigne(m2,en2,c2);
+	    Enseigne es3=new Enseigne(m1,en3,c3);
+	    Enseigne es4=new Enseigne(m3,en1,c1);
 	    enseigne.add(es1);
 	    enseigne.add(es2);
 	    enseigne.add(es3);
 	    enseigne.add(es4);
 	  
 	    //seance
-	    Seance s1=new Seance(es1,etudiants,dateFormat.format(date).toString(),10);
-	    Seance s2=new Seance(es3,etudiants,dateFormat.format(date).toString(),8);
-	    Seance s3=new Seance(es4,etudiants,dateFormat.format(date).toString(),12); 
-	    seance.add(s1);
-	    seance.add(s2);
-	    seance.add(s3);
+	    Seance s1=new Seance(es1,dateFormat.format(date).toString(),10);
+	    Seance s2=new Seance(es3,dateFormat.format(date).toString(),8);
+	    Seance s3=new Seance(es4,dateFormat.format(date).toString(),12); 
 	 
 
 	  //compte

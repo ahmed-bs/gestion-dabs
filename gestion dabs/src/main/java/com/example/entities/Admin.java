@@ -1,7 +1,6 @@
 package com.example.entities;
 
 import java.io.Serializable;
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 

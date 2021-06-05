@@ -1,20 +1,19 @@
 package com.example.entities;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.OneToMany;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 @Entity
 public class Seance {
 
@@ -24,30 +23,8 @@ public class Seance {
 @JoinColumn(name = "id_sc_ens")
 private Enseigne enseigne;
 
-public List<Etudiant> getEtudiant() {
-	return etudiant;
-}
-
-public void setEtudiant(List<Etudiant> etudiant) {
-	this.etudiant = etudiant;
-}
-
-public Enseigne getEnseigne() {
-	return enseigne;
-}
-
-public void setEnseigne(Enseigne enseigne) {
-	this.enseigne = enseigne;
-}
-@ManyToMany(fetch = FetchType.LAZY)
-@JoinTable(name = "absence",joinColumns = @JoinColumn(name = "seance_id"), 
-inverseJoinColumns = @JoinColumn(name = "etudiant_id"))
-private List<Etudiant> etudiant = new ArrayList<Etudiant>();
-
-
-
-
-
+@OneToMany(mappedBy="seance",fetch = FetchType.LAZY)
+private List<Absence>  absence= new ArrayList<Absence>();
 
 
 
@@ -58,32 +35,31 @@ private String date;
 private int heure;
 
 
-
-
-
-
-
-
-@Autowired
-public Seance(Enseigne enseigne, List<Etudiant> etudiant, String string, int heure) {
-	super();
-	this.enseigne = enseigne;
-	this.etudiant = etudiant;
-
-	this.date = string;
-	this.heure = heure;
-}
-
 public Seance() {
 	// TODO Auto-generated constructor stub
 }
 
-public Seance(Date date2, int j) {
-	// TODO Auto-generated constructor stub
+
+
+@Autowired
+public Seance(Enseigne enseigne, String string, int heure) {
+	super();
+	this.enseigne = enseigne;
+	this.date = string;
+	this.heure = heure;
 }
 
 
 
+
+
+public Enseigne getEnseigne() {
+	return enseigne;
+}
+
+public void setEnseigne(Enseigne enseigne) {
+	this.enseigne = enseigne;
+}
 public int getId_sc() {
 	return id_sc;
 }
