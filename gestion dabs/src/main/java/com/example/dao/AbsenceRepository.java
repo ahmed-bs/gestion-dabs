@@ -6,4 +6,6 @@ import com.example.entities.Absence;
 
 public interface AbsenceRepository  extends CrudRepository<Absence, Integer>,JpaRepository<Absence, Integer>{
 
+
+
 }

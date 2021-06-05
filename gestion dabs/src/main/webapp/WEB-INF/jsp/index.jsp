@@ -31,11 +31,9 @@
        <li class="nav-item">
         <a class="nav-link" href="/seance">seance</a>
       </li>
+   
         <li class="nav-item">
-        <a class="nav-link" href="/formAbs">faire  l'absence </a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/Etudiantabsent">liste absence </a>
+        <a class="nav-link" href="formAbs">liste absence </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/matiere">matiere </a>

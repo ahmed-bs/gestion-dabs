@@ -11,18 +11,12 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Absence {
-	/**
-	 * 
-	 */
+
 	public Absence() {
 		super();
 	}
 
-	/**
-	 * @param id_abs
-	 * @param seance
-	 * @param etudiant
-	 */
+	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -172,21 +172,15 @@ public class CatController {
 
 	@RequestMapping(value = "/formAbs" )
 	public String tester00(Model model){
-		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
-		model.addAttribute("listeUtilisateurs",Utilisateurss);
-	return "listeEtudiant";
+		List<Absence> Abcenses = absenceRepository.findAll();
+		model.addAttribute("listeAbcenses",Abcenses);
+	return "VueAbsence";
 	}
 	
-	@RequestMapping(value = "editAbs",method = RequestMethod.GET )
-	public String editAbs(Model model,int numCin){
-		Optional<Utilisateur> p=utilisateurRepository.findById(numCin);
-		 if(p.isPresent()) {
-		
-			 Etudiant utilisateur = (Etudiant) p.get();
-			  model.addAttribute("listeUtilisateurs",utilisateur);
-			  }
-	return "confirmationAbsence";
-	}	
+
+
+
+
 	@RequestMapping(value="/saveAbs",method = RequestMethod.POST)    
     public String saveAbs(Model model, Etudiant utilisateur){    
 		utilisateurRepository.save(utilisateur);
