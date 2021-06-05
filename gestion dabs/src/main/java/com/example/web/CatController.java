@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import com.example.entities.Etudiant;
 import com.example.entities.Matiere;
+import com.example.entities.Retard;
 import com.example.entities.Seance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import com.example.dao.ClasseRepository;
 import com.example.dao.CompteRepository;
 import com.example.dao.EnseRepository;
 import com.example.dao.MatiereRepository;
+import com.example.dao.RetardRepository;
 import com.example.dao.SeanceRepository;
 import com.example.dao.UtilisateurRepository;
 import com.example.entities.Absence;
@@ -45,6 +47,8 @@ public class CatController {
 	EnseRepository enseRepository;
 	@Autowired
 	AbsenceRepository absenceRepository;
+	@Autowired
+	RetardRepository retardRepository;
 	static public Seance id_s;
 	static public int id_class4keys;
 	static public int id_s5;
@@ -501,6 +505,30 @@ return "VueEtudiant4profs2";
 } 
 
 
+@RequestMapping(value="/saveOperation2")
+public String saveOperation2(Model model,int numCin) {
+
+	
+
+	List<Seance> seances= seanceRepository.findAll();
+	model.addAttribute("listeseances",seances);
+		
+	Seance Seances=seanceRepository.getOne(id_s5);
+	model.addAttribute("Seances",Seances);			
+	
+	Enseigne enseigness=enseRepository.getOne(id_class4keys);
+	model.addAttribute("enseigness",enseigness);	
+
+	
+	List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
+	model.addAttribute("listeUtilisateurss",Utilisateurss);
+	Etudiant User=(Etudiant) utilisateurRepository.getOne(numCin);
+	Retard ret=new Retard(id_s,User);
+	
+	model.addAttribute("ret",ret);
+	retardRepository.save(ret);
+return "VueEtudiant4profs2";
+} 
 
 
 
