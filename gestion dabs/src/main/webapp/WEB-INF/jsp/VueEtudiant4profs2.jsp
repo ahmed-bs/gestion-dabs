@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>   
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>  
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -71,30 +73,12 @@
     <td >${place.tel}</td>
      <td >${place.numIns}</td>
     <td><a href="delete/${place.numCin}" >Delete</a></td>
-     <td><a href="edit?numCin=${place.numCin}">Edit</a></td> 
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
+     <td><a href="edit?numCin=${place.numCin}">Edit</a></td>  
      <td>				
-     
-     
-     
-     	<form th:action="@{/saveOperation?numCin=${place.numCin}}" method="post">				
-					<button type="submit"> Save </button>			
-		</form>					
-							
-							
-							
-							
-							</td> 
+     	<form:form action="/saveOperation?numCin=${place.numCin}"   modelAttribute="listeUtilisateurs">				
+					<button type="submit" > absent </button>			
+		 </form:form>								
+	 </td> 
   </tr>
 </c:if>
 </c:if>

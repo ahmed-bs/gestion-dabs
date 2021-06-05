@@ -12,12 +12,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.example.dao.AbsenceRepository;
 import com.example.dao.ClasseRepository;
 import com.example.dao.CompteRepository;
 import com.example.dao.EnseRepository;
 import com.example.dao.MatiereRepository;
 import com.example.dao.SeanceRepository;
 import com.example.dao.UtilisateurRepository;
+import com.example.entities.Absence;
 import com.example.entities.Admin;
 import com.example.entities.Classe;
 import com.example.entities.Compte;
@@ -27,7 +30,7 @@ import com.example.entities.Utilisateur;
 
 @Controller
 public class CatController {
-	
+
 	@Autowired 
  UtilisateurRepository utilisateurRepository;
 	@Autowired 
@@ -40,7 +43,11 @@ public class CatController {
 	SeanceRepository seanceRepository;
 	@Autowired 
 	EnseRepository enseRepository;
-	
+	@Autowired
+	AbsenceRepository absenceRepository;
+	static public Seance id_s;
+	static public int id_class4keys;
+	static public int id_s5;
 		//*********************index controller*********************/
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
@@ -394,12 +401,18 @@ public String deletemat(@PathVariable int id){
 public String consulterCompte(Model model, int id_class) {
 //compléter le code
 
+	id_class4keys=id_class;
 	model.addAttribute("id_class",id_class);
 	List<Enseigne> Enseignes= enseRepository.findAll();
 	model.addAttribute("Enseignes",Enseignes);
-	
+
 
 	
+	System.out.println(id_class4keys+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+	System.out.println(id_class4keys+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+	System.out.println(id_class4keys+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+	System.out.println(id_class4keys+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+
 return "redirect:/seance2?id_class="+id_class;
 }
 /**********affiche seance**********************/
@@ -422,44 +435,43 @@ return "redirect:/seance2?id_class="+id_class;
 @RequestMapping(value = "/VueSeance4profs" )
 public String testerss(Model model,int id_class){
 	List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
-	model.addAttribute("listeUtilisateurs",Utilisateurss);
+	model.addAttribute("listeUtilisateurss",Utilisateurss);
 	
 	Enseigne enseigness=enseRepository.getOne(id_class);
 	model.addAttribute("enseigness",enseigness);	
 	
+
 return "VueEtudiant4profs2";
 }
 
 
-
-
-
-
-@RequestMapping("/entrer4etuds")
-public String consulterr(Model model, int id_sc) {
-
-	model.addAttribute("id_sc",id_sc);
-	List<Enseigne> Enseignes= enseRepository.findAll();
-	model.addAttribute("Enseignes",Enseignes);
-	
-return "redirect:/4etuds?id_sc="+id_sc;
-}
+/**********all the previous is okk don t f---- touch it 
+ * hedhi chteba3thek lel vue des etudes
+ * **********************/
 
 
 
 
 
-@RequestMapping(value = "/4etuds" )
+
+@RequestMapping(value = "/entrer4etuds" )
 	public String testeqsq(Model model,int id_sc){
+	
 		List<Seance> seances= seanceRepository.findAll();
 		model.addAttribute("listeseances",seances);
 			
 		Seance Seances=seanceRepository.getOne(id_sc);
-		model.addAttribute("Seances",Seances);	
-	 	System.out.println("************************************tester***********************************************");
-			
-		List<Utilisateur> Utilisateurs8 = utilisateurRepository.findAll();
-		model.addAttribute("listeUtilisateurss",Utilisateurs8);
+		model.addAttribute("Seances",Seances);			
+				
+		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
+		model.addAttribute("listeUtilisateurss",Utilisateurss);
+		
+		Enseigne enseigness=enseRepository.getOne(id_class4keys);
+		model.addAttribute("enseigness",enseigness);	
+		id_s5=id_sc;
+		id_s =Seances;
+		
+
 	return "VueEtudiant4profs2";
 	}
 
@@ -469,22 +481,30 @@ return "redirect:/4etuds?id_sc="+id_sc;
 
 
 
-
-@RequestMapping(value="/saveOperation",method=RequestMethod.POST)
+@RequestMapping(value="/saveOperation")
 public String saveOperation(Model model,int numCin) {
- 	System.out.println("************************************nkbdfjkndsfnjkdnf***********************************************");
+
 	
-	
-	model.addAttribute("numCin",numCin);
-	System.out.print("22222222222222222222"+numCin);
-	System.out.print("6666666666666666666666666666666******************************************************");
-	
+
+	List<Seance> seances= seanceRepository.findAll();
+	model.addAttribute("listeseances",seances);
 		
-		
-return "redirect:/VueEtudiant4profs2";
+	Seance Seances=seanceRepository.getOne(id_s5);
+	model.addAttribute("Seances",Seances);			
+	
+	Enseigne enseigness=enseRepository.getOne(id_class4keys);
+	model.addAttribute("enseigness",enseigness);	
+
+	
+	List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
+	model.addAttribute("listeUtilisateurss",Utilisateurss);
+	Etudiant User=(Etudiant) utilisateurRepository.getOne(numCin);
+	Absence abs=new Absence(id_s,User);
+	
+	model.addAttribute("abs",abs);
+	absenceRepository.save(abs);
+return "VueEtudiant4profs2";
 } 
-
-
 
 
 
