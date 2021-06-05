@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -12,7 +10,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand bg-primary text-white" href="/index"> gestion des absences</a>
+  <a class="navbar-brand bg-primary text-white " href="/index">gestion des absences</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -31,40 +29,56 @@
        <li class="nav-item">
         <a class="nav-link" href="/seance">seance</a>
       </li>
-   
         <li class="nav-item">
-        <a class="nav-link" href="formAbs">liste absence </a>
+        <a class="nav-link" href="/formAbs">faire  l'absence </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/Etudiantabsent">liste absence </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/matiere">matiere </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/formRet">retard </a>
-      </li>
+    
     </ul>
   </div>
 </nav>
-<div class="container my-4 ">
-            <div class="row">
-                <div class="col-lg-3">
-                    <h2 class="my-3 text-danger">Ajout</h2>
-                    <div class="list-group">
-                        <a class="list-group-item" href="/ajouterEn">ajouter Enseignant</a>
-                        <a class="list-group-item" href="/VueUpdate">ajouter Etudiant  </a>
-                        <a class="list-group-item" href="/ajouterAd">ajouter  Admin</a>
-                        <a class="list-group-item" href="/ajoutercl">ajouter classe</a>
-                        <a class="list-group-item" href="/ajoutercomp">ajouter compte</a>
-                           <a class="list-group-item" href="/ajoutermat">ajouter matiere</a>
-                           <a class="list-group-item" href="/ajoutersean">ajouter seance</a>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div >
-                       
-                   </div>
-      </div>
-       </div>
-       </div>
+<h2> Affichage les retards</h2>
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>id etudiant</th>
+    <th>nom classe</th>
+    <th>nom etudiant</th>
+     <th>prenom etudiant</th>
+        <th>date</th>
+          <th>heure</th>
+              <th>matiere</th>
+              <th>nom enseignant</th>
+
+ 
+  </tr>
+  </thead>
+  <tbody>
+ <c:forEach items="${listeRetards}" var="place">
+  <tr>
+    <td >${place.etudiant.numCin} </td>
+       <td >${place.seance.enseigne.classe.name}</td>
+    <td >${place.etudiant.nom} </td>
+ 
+        <td >${place.etudiant.prenom}</td>
+    <td >${place.seance.date}</td>
+        <td >${place.seance.heure}</td>
+             <td >${place.seance.enseigne.matiere.name}</td>
+    <td >${place.seance.enseigne.enseignant.nom}</td>
+ 
+
+  </tr>
+
+</c:forEach>
+  </tbody> 
+</table>
+<a href=/index>page d'acceuil</a> 
+               
 <footer class="bg-light text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
@@ -135,10 +149,8 @@
   <!-- Copyright -->
 </footer>
 </div>
- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> 
 </body>
-
 </html>
