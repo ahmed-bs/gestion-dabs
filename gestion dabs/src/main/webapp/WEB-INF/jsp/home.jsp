@@ -1,90 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>   
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>   
 
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
-<html xmlns= http://www.thymeleaf.org >
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+<title>gestion des absences</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/> 
-<title>gestion des absences</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand bg-primary text-white "href="/home">gestion des absences</a>
+  <a class="navbar-brand bg-primary text-white" href="/home"> gestion des absences</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/utilisateurlist">Utilisateurs  </a>
+        <a class="nav-link" href="#">home </a>
       </li>
      
      
-      <li class="nav-item">
-        <a class="nav-link" href="/home">home </a>
-      </li>
-          <li class="nav-item">
-        <a class="nav-link" href="formAbs">liste absence </a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="/formRet">liste retard </a>
-      </li>
-   
-    
-    </ul>
-  </div>
 </nav>
-      
-	    <div align="center">
-        <h2>ajouter etudiant</h2>
-        <form:form action="save" method="post" modelAttribute="listeUtilisateurs">
-            <table border="1" >
-                <tr>
-                    <td>ID: </td>
-                    <td>${listeUtilisateurs.numCin}
-                        <form:hidden path="numCin"/>
-                    </td>
-                </tr>        
-                <tr>
-                    <td>Name: </td>
-                    <td><form:input path="nom" /></td>
-                </tr>
-                 <tr>
-                    <td>Prenom: </td>
-                    <td><form:input path="prenom" /></td>
-                </tr>
-                <tr>
-                    <td>Email: </td>
-                    <td><form:input path="email" /></td>
-                </tr>
-                <tr>
-                    <td>Address: </td>
-                    <td><form:input path="adresse" /></td>
-                </tr>   
-                <tr>
-                    <td>tel: </td>
-                    <td><form:input path="tel" /></td>
-                </tr>   
-                <tr>
-                    <td>role: </td>
-                    <td> <form:hidden value="et" path="role"/></td>
-                </tr> 
-                <tr>
-                    <td>numIns: </td>
-                    <td><form:input path="numIns" /></td>
-                </tr> 
-                <tr>
-                    <td colspan="2"><input type="submit" value="Save"></td>
-                </tr>                    
-            </table>
-        </form:form>
-        <a href=/index>page d'acceuil</a>  
-    </div>
-                       </div>
+<div class="container my-4 ">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h2 class="my-3 text-danger">choisir</h2>
+                    <div class="list-group">
+                        <a class="list-group-item" href="/"> Enseignant</a>
+                        <a class="list-group-item" href="/"> Etudiant  </a>
+                        <a class="list-group-item" href="/index"> Admin</a>
+                      
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div >
+                       
+                   </div>
       </div>
        </div>
        </div>
@@ -158,9 +112,10 @@
   <!-- Copyright -->
 </footer>
 </div>
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

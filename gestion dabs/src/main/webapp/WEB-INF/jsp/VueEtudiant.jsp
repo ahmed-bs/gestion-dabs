@@ -10,34 +10,23 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand bg-primary text-white "href="/index">gestion des absences</a>
+  <a class="navbar-brand bg-primary text-white "href="/home">gestion des absences</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/utilisateurlist">Utilisateurs  </a>
-      </li>
-     
-       <li class="nav-item">
-        <a class="nav-link" href="/classe">classe</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="/compte">compte</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="/seance">seance</a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/formAbs">faire  l'absence </a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/Etudiantabsent">liste absence </a>
-      </li>
+    
       <li class="nav-item">
-        <a class="nav-link" href="/matiere">matiere </a>
+        <a class="nav-link" href="/home">home </a>
       </li>
+         <li class="nav-item">
+        <a class="nav-link" href="formAbs">liste absence </a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/formRet">liste retard </a>
+      </li>
+      
     
     </ul>
   </div>
