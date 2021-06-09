@@ -43,7 +43,7 @@
                        
                    </div>
       
-                    <h2 class="my-3 text-danger">choisir classe pour faire l'absence</h2>
+                    <h2 class="my-3 text-danger">consulter les:</h2>
                     <div class="list-group">
                              <a class="list-group-item" href="/Enseignant">afficher les Enseignants</a>
                         <a class="list-group-item" href="/Etudiant">afficher les Etudiants  </a>

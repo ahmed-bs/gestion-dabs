@@ -59,9 +59,7 @@
 </c:forEach>
   </tbody> 
 </table>
-<a href=/index>page d'acceuil</a> 
- 
-    
+  
 <footer class="bg-light text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">

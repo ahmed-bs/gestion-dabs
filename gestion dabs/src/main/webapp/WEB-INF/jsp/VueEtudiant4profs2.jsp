@@ -86,7 +86,6 @@
   </tbody> 
 </table>
  </div>
-<a href=/index>page d'acceuil</a>  
 
 <footer class="bg-light text-center text-white">
   <!-- Grid container -->
