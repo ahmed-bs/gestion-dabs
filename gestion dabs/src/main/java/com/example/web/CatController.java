@@ -58,7 +58,11 @@ public class CatController {
 
 		return "index";
 	}
-	
+	@RequestMapping(value = "/home" )	
+	public String tesst(Model model){
+
+		return "home";
+	}
 	@RequestMapping(value = "/utilisateurlist" )	
 	public String test2(Model model){
 
@@ -533,11 +537,27 @@ return "VueEtudiant4profs2";
 
 
 
+/******************retards****************/
+
+@RequestMapping(value = "/formRet" )
+public String tester45(Model model){
+	List<Retard> Retards = retardRepository.findAll();
+	model.addAttribute("listeRetards",Retards);
+return "VueRetard";
+}
+@RequestMapping(value="/saveRet",method = RequestMethod.POST)    
+public String saveRet(Model model, Etudiant utilisateur){    
+	utilisateurRepository.save(utilisateur);
+    return "redirect:/formRet";    
+}
 
 
-
-
-
+@RequestMapping(value = "/Etudiantretard" )
+public String testeret(Model model){
+	List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
+	model.addAttribute("listeUtilisateurs",Utilisateurss);
+return "listeRetard";
+}
 
 
 
