@@ -42,8 +42,10 @@
     <th>adresse</th>
     <th>tel</th>
     <th>numIns</th>
+     <c:if test = "${ifadmin=='ad'}">
     <th>supprimer</th>
     <th>edit</th>
+    </c:if>
   </tr>
   </thead>
   <tbody>
@@ -57,18 +59,17 @@
     <td >${place.adresse}</td>
     <td >${place.tel}</td>
      <td >${place.numIns}</td>
+      <c:if test = "${ifadmin=='ad'}">
     <td><a href="delete/${place.numCin}" >Delete</a></td>
      <td><a href="edit?numCin=${place.numCin}">Edit</a></td> 
+     </c:if>
   </tr>
 </c:if>
 </c:forEach>
   </tbody> 
 </table>
 <a href=/index>page d'acceuil</a>  
-                   </div>
-      </div>
-       </div>
-       </div>
+   
 <footer class="bg-light text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">

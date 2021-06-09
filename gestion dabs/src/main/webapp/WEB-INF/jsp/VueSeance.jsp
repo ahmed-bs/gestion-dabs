@@ -38,8 +38,10 @@
     <th>id</th>
     <th>date</th>
     <th>heure</th>
+   <c:if test = "${ifadmin=='ad'}">
     <th>supprimer</th>
     <th>edit</th>
+    </c:if>
   </tr>
   </thead>
   <tbody>
@@ -48,22 +50,18 @@
     <td >${place.id_sc} </td>
     <td >${place.date}</td>
      <td >${place.heure}</td>
+         <c:if test = "${ifadmin=='ad'}">
     <td><a href="deletesean/${place.id_sc}" >Delete</a></td>
      <td><a href="editsean?id_sc=${place.id_sc}">Edit</a></td> 
-
+</c:if>
   </tr>
 
 </c:forEach>
   </tbody> 
 </table>
 <a href=/index>page d'acceuil</a> 
-                   </div>
-      </div>
-       <tr>
-                    <td colspan="2"><input type="submit" value="seance"></td>
-                </tr>  
-       </div>
-       </div>
+ 
+    
 <footer class="bg-light text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">

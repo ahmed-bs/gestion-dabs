@@ -40,8 +40,7 @@
     <th>id</th>
     <th>date</th>
     <th>heure</th>
-    <th>supprimer</th>
-    <th>edit</th>
+ 
   </tr>
   </thead>
   <tbody>
@@ -53,9 +52,9 @@
     <td >${place.id_sc} </td>
     <td >${place.date}</td>
      <td >${place.heure}</td>
-    <td><a href="deletesean/${place.id_sc}" >Delete</a></td>
-     <td><a href="editsean?id_sc=${place.id_sc}">Edit</a></td> 
+    <c:if test = "${ifadmin!='et'}">
           <td><a href="entrer4etuds?id_sc=${place.id_sc}">enter</a></td> 
+          </c:if>
 </c:if>
   </tr>
 

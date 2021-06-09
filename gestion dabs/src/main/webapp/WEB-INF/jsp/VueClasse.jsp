@@ -37,8 +37,10 @@
   <tr>
     <th>id</th>
     <th>name</th>
+        <c:if test = "${ifadmin=='ad'}">
     <th>supprimer</th>
     <th>edit</th>
+    </c:if>
   </tr>
   </thead>
   <tbody>
@@ -46,10 +48,12 @@
   <tr>
     <td >${place.id_class} </td>
     <td >${place.name}</td>
-
+    <c:if test = "${ifadmin=='ad'}">
     <td><a href="deletee/${place.id_class}" >Delete</a></td>
      <td><a href="editcl?id_class=${place.id_class}">Edit</a></td> 
+      </c:if>
       <td><a href="entrercl?id_class=${place.id_class}">entrer</a></td> 
+  
   </tr>
 
 </c:forEach>

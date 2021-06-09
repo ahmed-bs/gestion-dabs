@@ -37,8 +37,10 @@
   <tr>
     <th>id_Matiere</th>
      <th>name</th>
+         <c:if test = "${ifadmin=='ad'}">
     <th>supprimer</th>
     <th>edit</th>
+    </c:if>
   </tr>
   </thead>
   <tbody>
@@ -48,9 +50,10 @@
     
    <td >${place.name}</td>
 
-    
+        <c:if test = "${ifadmin=='ad'}">
     <td><a href="deletemat/${place.id_Matiere}" >Delete</a></td>
      <td><a href="editmat?id_Matiere=${place.id_Matiere}">Edit</a></td> 
+     </c:if>
   </tr>
 
 </c:forEach>

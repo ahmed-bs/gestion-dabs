@@ -42,8 +42,10 @@
     <th>adresse</th>
     <th>tel</th>
     <th>numCnrps</th>
+         <c:if test = "${ifadmin=='ad'}">
     <th>supprimer</th>
     <th>edit</th>
+     </c:if>
   </tr>
   </thead>
   <tbody>
@@ -57,10 +59,10 @@
     <td >${place.adresse}</td>
     <td >${place.tel}</td>
      <td >${place.numCnrps}</td>
-
+    <c:if test = "${ifadmin=='ad'}">
     <td><a href="delete/${place.numCin}" >Delete</a></td>
      <td><a href="editEn?numCin=${place.numCin}">Edit</a></td> 
-
+ </c:if>
   </tr>
 </c:if>
 </c:forEach>

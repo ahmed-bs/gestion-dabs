@@ -52,10 +52,11 @@ public class CatController {
 	static public Seance id_s;
 	static public int id_class4keys;
 	static public int id_s5;
+	static public String role;
 		//*********************index controller*********************/
 	@RequestMapping(value = "/index" )	
 	public String test(Model model){
-
+		role ="ad";
 		return "index";
 	}
 	@RequestMapping(value = "/home" )	
@@ -70,12 +71,12 @@ public class CatController {
 	}
 	@RequestMapping(value = "/pagehomeensg" )	
 	public String test252(Model model){
-
+role ="en";
 		return "pagehomeensg";
 	}
 	@RequestMapping(value = "/pagehomeetut" )	
 	public String test25742(Model model){
-
+		role ="et";
 		return "pagehomeetut";
 	}
 	
@@ -84,6 +85,7 @@ public class CatController {
 	public String tester(Model model){
 		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
 		model.addAttribute("listeUtilisateurs",Utilisateurss);
+		model.addAttribute("ifadmin",role);
 	return "VueEtudiant";
 	}
 
@@ -91,12 +93,14 @@ public class CatController {
 	public String teste0(Model model){
 		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
 		model.addAttribute("listeUtilisateurs",Utilisateurss);
+		model.addAttribute("ifadmin",role);
 	return "VueEnseignant";
 	}
 	@RequestMapping(value = "/Admin" )
 	public String tester2(Model model){
 		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
 		model.addAttribute("listeUtilisateurs",Utilisateurss);
+		model.addAttribute("ifadmin",role);
 	return "VueAdmin";
 	}
 
@@ -221,7 +225,7 @@ public class CatController {
 	public String tester7(Model model){
 		List<Classe> Classes= classeRepository.findAll();
 		model.addAttribute("listeClasses",Classes);
-
+		model.addAttribute("ifadmin",role);
 	return "VueClasse";
 	}
 
@@ -268,6 +272,7 @@ public class CatController {
 	public String tester8(Model model){
 		List<Compte> Comptes= compteRepository.findAll();
 		model.addAttribute("listeComptes",Comptes);
+		model.addAttribute("ifadmin",role);
 	return "VueCompte";
 	}
 
@@ -310,6 +315,7 @@ public String deleteee(@PathVariable int id){
 	public String tester10(Model model){
 		List<Seance> seances= seanceRepository.findAll();
 		model.addAttribute("listeseances",seances);
+		model.addAttribute("ifadmin",role);
 	return "VueSeance";
 	}
 
@@ -352,6 +358,7 @@ public String deletesean(@PathVariable int id){
 	public String tester9(Model model){
 		List<Matiere> matieres= matiereRepository.findAll();
 		model.addAttribute("listematieres",matieres);
+		model.addAttribute("ifadmin",role);
 	return "VueMatiere";
 	}
 
@@ -419,12 +426,6 @@ public String consulterCompte(Model model, int id_class) {
 	model.addAttribute("Enseignes",Enseignes);
 
 
-	
-	System.out.println(id_class4keys+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-	System.out.println(id_class4keys+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-	System.out.println(id_class4keys+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-	System.out.println(id_class4keys+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-
 return "redirect:/seance2?id_class="+id_class;
 }
 /**********affiche seance**********************/
@@ -435,7 +436,7 @@ return "redirect:/seance2?id_class="+id_class;
 	public String testeqq(Model model,int id_class){
 		List<Seance> seances= seanceRepository.findAll();
 		model.addAttribute("listeseances",seances);
-			
+		model.addAttribute("ifadmin",role);
 		Enseigne enseigness=enseRepository.getOne(id_class);
 		model.addAttribute("enseigness",enseigness);	
 	    model.addAttribute("id_class",id_class);	
@@ -448,7 +449,7 @@ return "redirect:/seance2?id_class="+id_class;
 public String testerss(Model model,int id_class){
 	List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
 	model.addAttribute("listeUtilisateurss",Utilisateurss);
-	
+	model.addAttribute("ifadmin",role);
 	Enseigne enseigness=enseRepository.getOne(id_class);
 	model.addAttribute("enseigness",enseigness);	
 	
@@ -477,7 +478,7 @@ return "VueEtudiant4profs2";
 				
 		List<Utilisateur> Utilisateurss = utilisateurRepository.findAll();
 		model.addAttribute("listeUtilisateurss",Utilisateurss);
-		
+		model.addAttribute("ifadmin",role);
 		Enseigne enseigness=enseRepository.getOne(id_class4keys);
 		model.addAttribute("enseigness",enseigness);	
 		id_s5=id_sc;
@@ -512,7 +513,7 @@ public String saveOperation(Model model,int numCin) {
 	model.addAttribute("listeUtilisateurss",Utilisateurss);
 	Etudiant User=(Etudiant) utilisateurRepository.getOne(numCin);
 	Absence abs=new Absence(id_s,User);
-	
+	model.addAttribute("ifadmin",role);
 	model.addAttribute("abs",abs);
 	absenceRepository.save(abs);
 return "VueEtudiant4profs2";
@@ -538,7 +539,7 @@ public String saveOperation2(Model model,int numCin) {
 	model.addAttribute("listeUtilisateurss",Utilisateurss);
 	Etudiant User=(Etudiant) utilisateurRepository.getOne(numCin);
 	Retard ret=new Retard(id_s,User);
-	
+	model.addAttribute("ifadmin",role);
 	model.addAttribute("ret",ret);
 	retardRepository.save(ret);
 return "VueEtudiant4profs2";
