@@ -52,6 +52,7 @@
    <td >${place.id_sc} </td>
     <td >${place.date}</td>
     <td >${place.heure}</td>
+    
 
      <td><a href="editsean?id_sc=${place.id_sc}">edit</a></td> 
       
@@ -67,10 +68,7 @@
 
 
 <a href=/index>page d'acceuil</a>  
-                   </div>
-      </div>
-       </div>
-       </div>
+
 <footer class="bg-light text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">

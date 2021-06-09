@@ -16,23 +16,47 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+ 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">home </a>
+     <li class="nav-item">
+        <a class="nav-link" href="/home">home</a>
+      </li>
+   
+        <li class="nav-item">
+        <a class="nav-link" href="formAbs">liste absence </a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/formRet">liste retard </a>
       </li>
      
+
      
+    </ul>
+  </div>
 </nav>
 <div class="container my-4 ">
             <div class="row">
                 <div class="col-lg-3">
-                    <h2 class="my-3 text-danger">choisir</h2>
+                    <h2 class="my-3 text-danger">consulter</h2>
                     <div class="list-group">
-                        <a class="list-group-item" href="pagehomeensg"> Enseignant</a>
-                        <a class="list-group-item" href="/pagehomeetut"> Etudiant  </a>
-                        <a class="list-group-item" href="/index"> Admin</a>
-                      
+                          <a class="list-group-item" href="/Enseignant">afficher les Enseignants</a>
+                        <a class="list-group-item" href="/Etudiant">afficher les Etudiants  </a>
+                    
+                        <a class="list-group-item" href="/classe">afficher les classes</a>
+                     
+                           <a class="list-group-item" href="/matiere">afficher les matieres</a>
+                           <a class="list-group-item" href="/seance">afficher les seances</a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div >
+                       
+                   </div>
+      
+                    <h2 class="my-3 text-danger">choisir classe pour faire l'absence</h2>
+                    <div class="list-group">
+                       <a class="list-group-item" href="/classe">entrer les classes</a>
                     </div>
                 </div>
                 <div class="col-lg-9">

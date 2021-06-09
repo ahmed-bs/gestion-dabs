@@ -68,6 +68,16 @@ public class CatController {
 
 		return "utilisateurlist";
 	}
+	@RequestMapping(value = "/pagehomeensg" )	
+	public String test252(Model model){
+
+		return "pagehomeensg";
+	}
+	@RequestMapping(value = "/pagehomeetut" )	
+	public String test25742(Model model){
+
+		return "pagehomeetut";
+	}
 	
 	//*****************************affiche ************************************/
 	@RequestMapping(value = "/Etudiant" )

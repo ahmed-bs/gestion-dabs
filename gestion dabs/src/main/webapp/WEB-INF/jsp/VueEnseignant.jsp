@@ -57,8 +57,10 @@
     <td >${place.adresse}</td>
     <td >${place.tel}</td>
      <td >${place.numCnrps}</td>
+
     <td><a href="delete/${place.numCin}" >Delete</a></td>
      <td><a href="editEn?numCin=${place.numCin}">Edit</a></td> 
+
   </tr>
 </c:if>
 </c:forEach>
